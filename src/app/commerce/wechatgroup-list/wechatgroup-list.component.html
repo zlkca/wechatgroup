@@ -1,0 +1,10 @@
+<div class="container wechatgroup-list">
+    <div class="list-head">
+        <div *ngFor="let field of fields">{{field}}</div>
+    </div>
+    <div class="list-body">
+        <div class="row" *ngFor="let r of wechatgroupList" (click)="toDetail(r)">
+            <div *ngFor="let field of fields">{{r["field"]}}</div>
+        </div>
+    </div>
+</div>

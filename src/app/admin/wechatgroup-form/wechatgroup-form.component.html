@@ -1,0 +1,34 @@
+<div class="container">
+    <form class="wechatgroup-form">
+        <div class="row">
+            <div>title</div>
+            <input name="title" [(ngModel)]="wechatgroup.title"/>
+        </div>
+        <div class="row">
+            <div>description</div>
+            <textarea name="description" [(ngModel)]="wechatgroup.description"></textarea>
+        </div>
+        <div class="row">
+            <div>n_subscription</div>
+            <input name="n_subscription" [(ngModel)]="wechatgroup.n_subscription"/>
+            <img style="width:100px;height:100px;" [src]="logo"/>
+        </div>
+        <div class="row">
+            <div>rating</div>
+            <input name="rating" [(ngModel)]="wechatgroup.rating"/>
+        </div>
+        <div class="row">
+            <div>image</div>
+            <input name="image" type="file" (change)="onFileChange($event)" />
+        </div>
+        <div class="row">
+            <div>user</div>
+            <input name="user" [(ngModel)]="wechatgroup.user"/>
+        </div>
+        <div class="row">
+            <div>created</div>
+            <input name="created" [(ngModel)]="wechatgroup.created"/>
+        </div>
+        <button (click)="save()">Save</button>
+    </form>
+</div>

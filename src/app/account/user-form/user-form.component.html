@@ -1,0 +1,25 @@
+<div class="container">
+    <form class="user-form">
+        <div class="row">
+            <div>username</div>
+            <input name="username" [(ngModel)]="user.username"/>
+        </div>
+        <div class="row">
+            <div>first_name</div>
+            <input name="first_name" [(ngModel)]="user.first_name"/>
+        </div>
+        <div class="row">
+            <div>last_name</div>
+            <input name="last_name" [(ngModel)]="user.last_name"/>
+        </div>
+        <div class="row">
+            <div>portrait</div>
+            <input name="portrait" [(ngModel)]="user.portrait"/>
+        </div>
+        <div class="row">
+            <div>type</div>
+            <input name="type" [(ngModel)]="user.type"/>
+        </div>
+        <button (click)="save()">Save</button>
+    </form>
+</div>

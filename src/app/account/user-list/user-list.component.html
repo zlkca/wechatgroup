@@ -1,0 +1,10 @@
+<div class="container user-list">
+    <div class="list-head">
+        <div *ngFor="let field of fields">{{field}}</div>
+    </div>
+    <div class="list-body">
+        <div class="row" *ngFor="let r of userList" (click)="toDetail(r)">
+            <div *ngFor="let field of fields">{{r["field"]}}</div>
+        </div>
+    </div>
+</div>
