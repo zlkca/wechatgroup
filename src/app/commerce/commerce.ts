@@ -5,8 +5,7 @@ export class WechatGroup{
   public description:string;
   public n_subscription:number;
   public rating:number;
-  public qr:string;
-  public image:string;
+  public logo:string;
   public user:any;
   public created:string;
     constructor(o?:any){
@@ -15,8 +14,7 @@ export class WechatGroup{
             this.description = o.description;
             this.n_subscription = o.n_subscription;
             this.rating = o.rating;
-            this.qr = o.qr;
-            this.image = o.image;
+            this.logo = o.logo;
             if(o.user && o.userlength>0){
                 this.user = {'id':o.user[0], 'name':o.user[1]};
             }

@@ -40,27 +40,41 @@ export class CommerceService {
         });
     }
 
-    saveWechatGroup(d:WechatGroup):Observable<WechatGroup>{
-        const url = this.API_URL + 'wechatGroup';
-        let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        let data = {
-          'title': d.title,
-          'description': d.description,
-          'n_subscription': d.n_subscription,
-          'rating': d.rating,
-          'qr': d.qr,
-          'image': d.image,
-          'user_id': d.user.id,
-          'created': d.created,
-        }
-        return this.http.post(url, data, {'headers': headers}).map((res:any) => {
-            return new WechatGroup(res.data);
-        })
-        .catch((err) => {
-            return Observable.throw(err.message || err);
-        });
-    }
+    // saveWechatGroup(d:WechatGroup):Observable<WechatGroup>{
+    //     const url = this.API_URL + 'wechatGroup';
+    //     let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    //     let data = {
+    //       'title': d.title,
+    //       'description': d.description,
+    //       'n_subscription': d.n_subscription,
+    //       'rating': d.rating,
+    //       'logo': d.logo,
+    //       'user_id': d.user.id,
+    //       'created': d.created,
+    //     }
+    //     return this.http.post(url, data, {'headers': headers}).map((res:any) => {
+    //         return new WechatGroup(res.data);
+    //     })
+    //     .catch((err) => {
+    //         return Observable.throw(err.message || err);
+    //     });
+    // }
+    saveWechatGroup(d:WechatGroup){
+        let formData = new FormData();
 
+        formData.append('title', d.title);
+        formData.append('description', d.description);
+        formData.append('n_subscription', d.n_subscription);
+        formData.append('rating', d.rating);
+        formData.append('user_id', d.user.id);
+        formData.append('created', d.created);
+        formData.append('logo', d.logo);
+
+        var request = new XMLHttpRequest();
+        request.open("POST", this.API_URL + 'wechatGroup');
+        request.send(formData);
+    }
+    
     getSubscriptionList(query?:string):Observable<Subscription[]>{
         const url = this.API_URL + 'subscription' + query ? query:'';
         let headers = new HttpHeaders().set('Content-Type', 'application/json');

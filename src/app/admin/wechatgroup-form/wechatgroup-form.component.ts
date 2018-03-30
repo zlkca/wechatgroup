@@ -12,7 +12,7 @@ import { WechatGroup } from '../../commerce/commerce';
 export class AdminWechatGroupFormComponent implements OnInit {
     wechatgroup:WechatGroup = new WechatGroup();
     logo:any;
-    
+
     constructor(private wechatgroupServ:CommerceService, private route: ActivatedRoute){}
 
     ngOnInit() {
@@ -30,13 +30,14 @@ export class AdminWechatGroupFormComponent implements OnInit {
 
     save() {
         let self = this;
-        self.wechatgroupServ.saveWechatGroup(self.wechatgroup).subscribe(
-            (r:WechatGroup) => {
-                self.wechatgroup = r;
-            },
-            (err:any) => {
-                self.wechatgroup = new WechatGroup();
-            });
+        self.wechatgroupServ.saveWechatGroup(self.wechatgroup);
+        // self.wechatgroupServ.saveWechatGroup(self.wechatgroup).subscribe(
+        //     (r:WechatGroup) => {
+        //         self.wechatgroup = r;
+        //     },
+        //     (err:any) => {
+        //         self.wechatgroup = new WechatGroup();
+        //     });
     }
 
 
@@ -48,7 +49,7 @@ export class AdminWechatGroupFormComponent implements OnInit {
           reader.readAsDataURL(file);
           reader.onload = () => {
               var v = reader.result.split(',')[1];
-              self.logo = reader.result;
+              self.wechatgroup.logo = reader.result;
           //   this.form.get('avatar').setValue({
           //     filename: file.name,
           //     filetype: file.type,
