@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommerceService } from '../../commerce/commerce.service';
 import { WechatGroup } from '../../commerce/commerce';
-
+import { environment } from '../../../environments/environment';
 @Component({
     providers:[CommerceService],
     selector: 'admin-wechatgroup-list',
@@ -11,7 +11,7 @@ import { WechatGroup } from '../../commerce/commerce';
 })
 export class AdminWechatGroupListComponent implements OnInit {
     wechatgroupList:WechatGroup[];
-
+    MEDIA_URL = environment.MEDIA_URL;
     fields:string[] = [];
     constructor(private router:Router, private wechatgroupServ:CommerceService){}
 
@@ -22,16 +22,28 @@ export class AdminWechatGroupListComponent implements OnInit {
         this.wechatgroupServ.getWechatGroupList().subscribe(
             (r:WechatGroup[]) => {
                 self.wechatgroupList = r;
+                self.fields = Object.keys(r[0]);
             },
             (err:any) => {
                 self.wechatgroupList = [];
             });
     }
 
-    toDetail(r){}
+    toForm(r:any){
+        if(r){
+            this.router.navigate(["admin/wechatgroup/" + r.id]);
+        }else{
+            this.router.navigate(["admin/wechatgroup"]);
+        }
+        
+    }
 
-    toForm(){
-        this.router.navigate(["admin/wechatgroup-form"]);
+    change(r){
+        this.router.navigate(["admin/wechatgroup/" + r.id]);
+    }
+
+    add(){
+        this.router.navigate(["admin/wechatgroup"]);
     }
 
 }

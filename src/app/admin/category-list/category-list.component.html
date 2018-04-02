@@ -1,0 +1,15 @@
+<div class="container category-list">
+    <div class="btn">New Category</div>
+    <div class="list-head">
+        <!-- <div class="field" *ngFor="let field of fields">{{field}}</div> -->
+    </div>
+    <div class="list-body">
+        <div class="row" *ngFor="let r of categoryList">
+            <!-- <div class="col" *ngFor="let field of fields">{{r[field]}}</div> -->
+            <div class="col">{{r.name}}</div>
+            <div class="btn" (click)="add()">Add</div>
+            <div class="btn" (click)="change(r)">Change</div>
+        </div>
+    </div>
+
+</div>

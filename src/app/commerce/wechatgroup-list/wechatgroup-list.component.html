@@ -1,10 +1,21 @@
 <div class="container wechatgroup-list">
+    <div class="btn" (click)="toForm()">Add WeChat Group</div>
+
     <div class="list-head">
-        <div *ngFor="let field of fields">{{field}}</div>
+<!--         <div *ngFor="let field of fields">{{field}}</div> -->
     </div>
     <div class="list-body">
         <div class="row" *ngFor="let r of wechatgroupList" (click)="toDetail(r)">
-            <div *ngFor="let field of fields">{{r["field"]}}</div>
+            <!-- <div *ngFor="let field of fields">{{r[field]}}</div> -->
+            <div class="left-side">
+                <img src="{{MEDIA_URL}}{{r.logo}}" />
+            </div>
+            <div class="right-side">
+                <div class="row">
+                    <div class="col">{{r.title}}</div>
+                    <div class="col">{{r.description}}</div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

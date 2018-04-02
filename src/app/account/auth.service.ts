@@ -16,9 +16,11 @@ export class AuthService {
 
     login(account: string, password: string): Observable<User> {
         const url = this.API_URL + 'login';
+        let self = this;
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         return this.http.post(url, {"account": account, "password": password}, {'headers': headers}).map((res:any) => {
-            if( res.data){
+            localStorage.setItem('token-'+self.APP, res.token);
+            if(res.data){
                 return new User(res.data);
             }else{
                 return null;
@@ -36,5 +38,21 @@ export class AuthService {
     setLogoutStorage(): void {
         localStorage.removeItem('user-' + this.APP);
     };
+
+    checkToken(token: string): Observable<any> {
+        const url = this.API_URL + 'token';
+        let self = this;
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this.http.post(url, {"token": token}, {'headers': headers}).map((res:any) => {
+            if(res.data){
+                return res.data;
+            }else{
+                return null;
+            }
+        })
+        .catch((err) => {
+            return Observable.throw(err.message || err);
+        });
+    }
 
 }

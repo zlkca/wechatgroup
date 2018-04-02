@@ -12,8 +12,11 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 import { AdminLoginComponent } from './login/login.component';
+import { AdminCategoryListComponent } from './category-list/category-list.component';
+import { AdminCategoryFormComponent } from './category-form/category-form.component';
 import { AdminWechatGroupListComponent } from './wechatgroup-list/wechatgroup-list.component';
 import { AdminWechatGroupFormComponent } from './wechatgroup-form/wechatgroup-form.component';
+import { AdminDashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -28,6 +31,6 @@ import { AdminWechatGroupFormComponent } from './wechatgroup-form/wechatgroup-fo
             }
         }),
   ],
-  declarations: [AdminLoginComponent, AdminWechatGroupListComponent, AdminWechatGroupFormComponent]
+  declarations: [AdminLoginComponent, AdminCategoryListComponent, AdminCategoryFormComponent, AdminWechatGroupListComponent, AdminWechatGroupFormComponent, AdminDashboardComponent]
 })
 export class AdminModule { }

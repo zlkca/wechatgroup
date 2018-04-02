@@ -1,0 +1,16 @@
+.list-body{
+    .row{
+        padding:10px 0px;
+
+        .left-side{
+            img{
+                width:64px;
+                height:64px;
+            }
+        }
+        .right-side{
+            width:calc(100% - 120px);
+            margin-left:15px;
+        }
+    }
+}

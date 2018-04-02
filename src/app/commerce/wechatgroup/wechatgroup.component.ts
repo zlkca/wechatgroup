@@ -6,15 +6,16 @@ import { environment } from '../../../environments/environment';
 
 @Component({
     providers:[CommerceService],
-    selector: 'admin-wechatgroup-form',
-    templateUrl: './wechatgroup-form.component.html',
-    styleUrls: ['./wechatgroup-form.component.scss']
+    selector: 'wechatgroup',
+    templateUrl: './wechatgroup.component.html',
+    styleUrls: ['./wechatgroup.component.scss']
 })
-export class AdminWechatGroupFormComponent implements OnInit {
+export class WechatGroupComponent implements OnInit {
     MEDIA_URL = environment.MEDIA_URL;
     categoryList:Category[] = [];
     wechatgroup:WechatGroup = new WechatGroup();
     logo:any = environment.MEDIA_URL + 'empty.png';
+    categoryName:string = "";
     id:any;
 
     constructor(private commerceServ:CommerceService, private router: Router, private route: ActivatedRoute){
@@ -36,7 +37,14 @@ export class AdminWechatGroupFormComponent implements OnInit {
             if(params.id){
               self.commerceServ.getWechatGroup(params.id).subscribe(
                 (r:WechatGroup) => {
-                    self.logo = self.MEDIA_URL + '/' + r.logo;
+                    if(r.logo){
+                      self.logo = self.MEDIA_URL + r.logo;
+                    }
+                    
+                    if(r.category){
+                      self.categoryName = r.category.name;
+                    }
+                    
                     self.wechatgroup = r;
                 },
                 (err:any) => {
@@ -56,11 +64,11 @@ export class AdminWechatGroupFormComponent implements OnInit {
         self.commerceServ.saveWechatGroup(self.wechatgroup).subscribe(
             (r:any) => {
                 //self.wechatgroup = new WechatGroup(r.data[0]);
-                self.router.navigate(["admin/wechatgroups"]);
+                self.router.navigate(["wechatgroups"]);
             },
             (err:any) => {
                 //self.wechatgroup = new WechatGroup();
-                self.router.navigate(["admin/wechatgroups"]);
+                self.router.navigate(["wechatgroups"]);
             });
     }
 
