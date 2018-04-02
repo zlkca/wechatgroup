@@ -7,9 +7,12 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-// import { HeaderComponent } from './header/header.component';
-// import { FooterComponent } from './footer/footer.component';
-// import { HomeComponent } from './main/home/home.component';
+
+import { HeaderComponent } from './ui/header/header.component';
+import { FooterComponent } from './ui/footer/footer.component';
+
+import { HomeComponent } from './pages/home/home.component';
+import { WechatGroupComponent } from './pages/wechatgroup/wechatgroup.component';
 // import { ContactComponent } from './main/contact/contact.component';
 // import { LoginComponent } from './users/login/login.component';
 // import { SignupComponent } from './users/signup/signup.component';
@@ -30,14 +33,15 @@ import { AdminWechatGroupListComponent } from './admin/wechatgroup-list/wechatgr
 import { AdminWechatGroupFormComponent } from './admin/wechatgroup-form/wechatgroup-form.component';
 
 import { WechatGroupListComponent } from './commerce/wechatgroup-list/wechatgroup-list.component';
-import { WechatGroupComponent } from './commerce/wechatgroup/wechatgroup.component';
+
 
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-// import { CoreModule }    from './core/core.module';
 
-// import { MainModule } from './main/main.module';
+
+import { PagesModule }    from './pages/pages.module';
+import { UiModule } from './ui/ui.module';
 import { CommerceModule } from './commerce/commerce.module';
 import { AdminModule } from './admin/admin.module';
 
@@ -69,15 +73,13 @@ const appRoutes: Routes = [
   { path: 'admin/wechatgroup', component:AdminWechatGroupFormComponent },
   { path: 'wechatgroups', component:WechatGroupListComponent },
   { path: 'wechatgroup/:id', component:WechatGroupComponent },
-  // { path: '', component:HomeComponent }
+  { path: '', component:HomeComponent }
 ];
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    // HeaderComponent,
-    // FooterComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -96,8 +98,9 @@ const appRoutes: Routes = [
             deps: [HttpClient]
         }
     }),
-    //Module,
+    UiModule,
     CommerceModule,
+    PagesModule,
     AdminModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],

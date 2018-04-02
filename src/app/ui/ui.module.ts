@@ -14,6 +14,8 @@ import { WizardComponent } from './wizard/wizard.component';
 import { ImageViewerComponent } from './image-viewer/image-viewer.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { MapComponent } from './map/map.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [
@@ -32,9 +34,11 @@ import { MapComponent } from './map/map.component';
     WizardComponent,
     ImageViewerComponent,
     FeedbackComponent,
-    MapComponent
+    MapComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  exports:[ WizardComponent, ImageViewerComponent, FeedbackComponent, MapComponent]
+  exports:[ WizardComponent, ImageViewerComponent, FeedbackComponent, MapComponent, HeaderComponent, FooterComponent]
 })
 export class UiModule { }

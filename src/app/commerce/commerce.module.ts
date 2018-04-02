@@ -6,11 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryFormComponent } from './category-form/category-form.component';
 import { WechatGroupListComponent } from './wechatgroup-list/wechatgroup-list.component';
-import { WechatGroupComponent } from './wechatgroup/wechatgroup.component';
+import { WechatGroupDetailComponent } from './wechatgroup-detail/wechatgroup-detail.component';
 import { QRListComponent } from './qr-list/qr-list.component';
 import { QRFormComponent } from './qr-form/qr-form.component';
 import { SubscriptionListComponent } from './subscription-list/subscription-list.component';
 import { SubscriptionFormComponent } from './subscription-form/subscription-form.component';
+
+import { PageService } from '../pages/page.service';
+
 @NgModule({
    imports:[
       CommonModule,
@@ -18,7 +21,8 @@ import { SubscriptionFormComponent } from './subscription-form/subscription-form
       RouterModule,
       HttpClientModule
    ],
-   exports:[CategoryListComponent,CategoryFormComponent,WechatGroupListComponent,WechatGroupComponent,QRListComponent,QRFormComponent,SubscriptionListComponent,SubscriptionFormComponent],
-   declarations:[CategoryListComponent,CategoryFormComponent,WechatGroupListComponent,WechatGroupComponent,QRListComponent,QRFormComponent,SubscriptionListComponent,SubscriptionFormComponent]
+   providers: [PageService],
+   exports:[CategoryListComponent,CategoryFormComponent,WechatGroupListComponent,WechatGroupDetailComponent,QRListComponent,QRFormComponent,SubscriptionListComponent,SubscriptionFormComponent],
+   declarations:[CategoryListComponent,CategoryFormComponent,WechatGroupListComponent,WechatGroupDetailComponent,QRListComponent,QRFormComponent,SubscriptionListComponent,SubscriptionFormComponent]
 })
 export class CommerceModule { }

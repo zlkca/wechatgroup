@@ -248,27 +248,27 @@ body{
 
 
 .page{
-  margin-top:70px;
+  margin-top:80px;
   min-height:600px;
   padding:0px;
 }
 
-    .search-box{
-      .input-group-addon{
-        padding: .5rem .75rem;
-          margin-bottom: 0;
-          font-size: 1rem;
-          font-weight: 400;
-          line-height: 1.25;
-          color: #464a4c;
-          text-align: center;
-          background-color: #eceeef;
-          border: 1px solid rgba(0,0,0,.15);
-          border-left:none;
-          border-top-right-radius: .25rem;
-          border-bottom-right-radius: .25rem;
-      }
-    }
+.search-box{
+  .input-group-addon{
+    padding: .5rem .75rem;
+      margin-bottom: 0;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.25;
+      color: #464a4c;
+      text-align: center;
+      background-color: #eceeef;
+      border: 1px solid rgba(0,0,0,.15);
+      border-left:none;
+      border-top-right-radius: .25rem;
+      border-bottom-right-radius: .25rem;
+  }
+}
 
   // for both login, google login and signup
   .auth-form{
