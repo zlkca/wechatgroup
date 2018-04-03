@@ -16,7 +16,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { MapComponent } from './map/map.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-
+// import { PageService } from '../pages/page.service';
+// import { PagesModule } from '../pages/pages.module';
 @NgModule({
   imports: [
     CommonModule,
@@ -28,7 +29,8 @@ import { FooterComponent } from './footer/footer.component';
             deps: [HttpClient]
         }
     }),
-    FormsModule
+    FormsModule//,
+    //PagesModule
   ],
   declarations: [
     WizardComponent,

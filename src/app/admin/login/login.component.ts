@@ -8,11 +8,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { User } from '../../account/account';
 import { AuthService } from '../../account/auth.service';
 import { AccountService } from '../../account/account.service';
-import { PageService } from '../../pages/page.service';
-
+import { UiService } from '../../ui/ui.service';
 
 @Component({
-  providers: [AuthService, AccountService, PageService],
+  providers: [AuthService, AccountService],
   selector: 'admin-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
@@ -27,8 +26,8 @@ export class AdminLoginComponent implements OnInit {
   errMsg = '';
   auth2:any;
 
-  constructor(private translate:TranslateService, public authServ:AuthService, private router:Router, 
-    private pageServ:PageService) { 
+  constructor(private translate:TranslateService, public authServ:AuthService, 
+    private router:Router, private uiServ:UiService) { 
   }
 
   ngOnInit() {
@@ -79,7 +78,7 @@ export class AdminLoginComponent implements OnInit {
                 //if(user.active){
                   // user.source = 'main';
                   self.authServ.setLoginStorage(user);
-                  self.pageServ.emitMsg({name:'OnUpdateHeader'});
+                  self.uiServ.emitMsg({name:'OnUpdateHeader'});
                   self.user = user;
                   self.toAdminHome();
                 // }else{
@@ -103,21 +102,21 @@ export class AdminLoginComponent implements OnInit {
 
 
   onForgetPassword(){
-    this.router.navigate(["/forget-password"]);;
-    return false;
+    // this.router.navigate(["/forget-password"]);;
+    // return false;
   }
 
-  updateAccount(){
-
+  onChangeAccount(){
+    this.errMsg = "";
   }
 
-  updatePassword(){
-
+  onChangePassword(){
+    this.errMsg = "";
   }
 
   toAdminHome(){
     //this.router.navigateByUrl("/");
-    this.router.navigate(["/admin"]);
+    this.router.navigate(["admin"]);
   }
 
 }

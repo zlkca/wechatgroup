@@ -1,10 +1,8 @@
-<div class="container wechatgroup-list">
-    <div class="list-head">
-<!--         <div *ngFor="let field of fields">{{field}}</div> -->
+<div class="wechatgroup-list">
+<!--     <div class="list-head">
     </div>
     <div class="list-body">
         <div class="row" *ngFor="let r of wechatgroupList" (click)="toDetail(r)">
-            <!-- <div *ngFor="let field of fields">{{r[field]}}</div> -->
             <div class="left-side">
                 <img src="{{MEDIA_URL}}{{r.logo}}" />
             </div>
@@ -15,5 +13,16 @@
                 </div>
             </div>
         </div>
+    </div> -->
+
+    <div class="item-cell" [ngStyle]="{'width':item.w+'px', 'height':item.h+'px'}" *ngFor="let r of wechatgroupList" (click)="toDetail(r)" >
+        <div class="image-area" [ngStyle]="{'height':frame.h+'px'}">
+            <img src="{{MEDIA_URL}}{{r.logo}}" alt="{{r.title}}" />
+        </div>
+
+        <div class="text-area">
+            <div class="text-xs">{{r.title}}</div>
+        </div>
+
     </div>
 </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+
 import { CommerceService } from '../../commerce/commerce.service';
 import { WechatGroup } from '../../commerce/commerce';
 import { environment } from '../../../environments/environment';
@@ -13,13 +15,13 @@ export class AdminWechatGroupListComponent implements OnInit {
     wechatgroupList:WechatGroup[];
     MEDIA_URL = environment.MEDIA_URL;
     fields:string[] = [];
-    constructor(private router:Router, private wechatgroupServ:CommerceService){}
+    constructor(private translate:TranslateService, private router:Router, private commerceServ:CommerceService){}
 
     ngOnInit() {
         let self = this;
         let wechatgroup = new WechatGroup();
         this.fields = Object.getOwnPropertyNames(wechatgroup);
-        this.wechatgroupServ.getWechatGroupList().subscribe(
+        this.commerceServ.getWechatGroupList().subscribe(
             (r:WechatGroup[]) => {
                 self.wechatgroupList = r;
                 self.fields = Object.keys(r[0]);
@@ -35,7 +37,6 @@ export class AdminWechatGroupListComponent implements OnInit {
         }else{
             this.router.navigate(["admin/wechatgroup"]);
         }
-        
     }
 
     change(r){
@@ -46,5 +47,10 @@ export class AdminWechatGroupListComponent implements OnInit {
         this.router.navigate(["admin/wechatgroup"]);
     }
 
+    delete(r){
+        this.commerceServ.rmWechatGroup(r.id).subscribe(
+            (ret)=>{},
+            (err)=>{}
+        )}
 }
 

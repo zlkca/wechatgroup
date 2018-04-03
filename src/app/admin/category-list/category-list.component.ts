@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+
 import { CommerceService } from '../../commerce/commerce.service';
 import { Category } from '../../commerce/commerce';
 
@@ -12,7 +14,7 @@ import { Category } from '../../commerce/commerce';
 export class AdminCategoryListComponent implements OnInit {
     categoryList:Category[];
     fields:string[] = [];
-    constructor(private router:Router, private commerceServ:CommerceService){}
+    constructor(private translate:TranslateService, private router:Router, private commerceServ:CommerceService){}
 
     ngOnInit() {
         let self = this;
@@ -36,5 +38,11 @@ export class AdminCategoryListComponent implements OnInit {
         this.router.navigate(["admin/category"]);
     }
 
+    delete(r){
+        this.commerceServ.rmCategory(r.id).subscribe(
+            (ret)=>{},
+            (err)=>{}
+        )
+    }
 }
 

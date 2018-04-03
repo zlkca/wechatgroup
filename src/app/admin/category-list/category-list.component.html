@@ -1,15 +1,15 @@
-<div class="page admin-category-list">
-    <div class="container">
-        <div class="list-head">
-            <!-- <div class="field" *ngFor="let field of fields">{{field}}</div> -->
-        </div>
-        <div class="list-body">
-            <div class="row" *ngFor="let r of categoryList">
-                <!-- <div class="col" *ngFor="let field of fields">{{r[field]}}</div> -->
-                <div class="col">{{r.name}}</div>
-                <div class="btn" (click)="add()">Add</div>
-                <div class="btn" (click)="change(r)">Change</div>
-            </div>
+<div class="admin-category-list">
+    <div class="list-head">
+        <!-- <div class="field" *ngFor="let field of fields">{{field}}</div> -->
+    
+    </div>
+    <div class="list-body">
+        <div class="row" *ngFor="let r of categoryList">
+            <!-- <div class="col" *ngFor="let field of fields">{{r[field]}}</div> -->
+            <div class="col">{{r.name}}</div>
+            <div class="btn" (click)="add()">{{'ADD'|translate}}</div>
+            <div class="btn" (click)="change(r)">{{'CHANGE'|translate}}</div>
+            <div class="btn" (click)="delete(r)">{{'DELETE'|translate}}</div>
         </div>
     </div>
 </div>

@@ -1,47 +1,46 @@
-<div class="page admin-wechatgroup-form">
-<div class="container">
-
-    <form class="wechatgroup-form">
-        <div class="row">
-            <div class="label-sm">title</div>
-            <input name="title" [(ngModel)]="wechatgroup.title"/>
-        </div>
-        <div class="row">
-            <div class="label-sm">description</div>
-            <textarea name="description" [(ngModel)]="wechatgroup.description"></textarea>
-        </div>
-<!--         <div class="row">
-            <div class="label-sm">n_subscription</div>
-            <input name="n_subscription" [(ngModel)]="wechatgroup.n_subscription"/>
-            <img style="width:100px;height:100px;" [src]="wechatgroup.logo"/>
-        </div> -->
-<!--         <div class="row">
-            <div>rating</div>
-            <input name="rating" [(ngModel)]="wechatgroup.rating"/>
-        </div> -->
-        <div class="row">
-            <div class="label-sm">image</div>
-            <input name="logo" type="file" (change)="onFileChange($event)" />
-            <img [src]="logo" />
-<!--             <div class="canvas-frame">
-                <canvas id="item-canvas" [style.width.px]="CANVAS_W" [style.marginTop.px]="FRAME_PADDING_H"></canvas>
+<div class="admin-wechatgroup-form">
+    <div class="container">
+        <form class="wechatgroup-form">
+            <div class="row">
+                <div class="label-sm">title</div>
+                <input name="title" [(ngModel)]="wechatgroup.title"/>
+            </div>
+            <div class="row">
+                <div class="label-sm">description</div>
+                <textarea name="description" [(ngModel)]="wechatgroup.description"></textarea>
+            </div>
+    <!--         <div class="row">
+                <div class="label-sm">n_subscription</div>
+                <input name="n_subscription" [(ngModel)]="wechatgroup.n_subscription"/>
+                <img style="width:100px;height:100px;" [src]="wechatgroup.logo"/>
             </div> -->
-        </div>
-<!--         <div class="row">
-            <div class="label-sm">user</div>
-            <input name="user" [(ngModel)]="wechatgroup.user"/>
-        </div> -->
-        <div class="row">
-            <div class="label-sm">category</div>
-            <select name="category" [(ngModel)]="wechatgroup.category.id">
-                <option *ngFor="let cat of categoryList" [value]="cat.id">{{cat.name}}</option>
-            </select>
-        </div>
-<!--         <div class="row">
-            <div>created</div>
-            <input name="created" [(ngModel)]="wechatgroup.created"/>
-        </div> -->
-        <button (click)="save()">Save</button>
-    </form>
-</div>
+    <!--         <div class="row">
+                <div>rating</div>
+                <input name="rating" [(ngModel)]="wechatgroup.rating"/>
+            </div> -->
+            <div class="row">
+                <div class="label-sm">image</div>
+                <input name="logo" type="file" (change)="onFileChange($event)" />
+                <img [src]="logo" />
+    <!--             <div class="canvas-frame">
+                    <canvas id="item-canvas" [style.width.px]="CANVAS_W" [style.marginTop.px]="FRAME_PADDING_H"></canvas>
+                </div> -->
+            </div>
+    <!--         <div class="row">
+                <div class="label-sm">user</div>
+                <input name="user" [(ngModel)]="wechatgroup.user"/>
+            </div> -->
+            <div class="row">
+                <div class="label-sm">category</div>
+                <select name="category" [(ngModel)]="wechatgroup.category.id">
+                    <option *ngFor="let cat of categoryList" [value]="cat.id">{{cat.name}}</option>
+                </select>
+            </div>
+    <!--         <div class="row">
+                <div>created</div>
+                <input name="created" [(ngModel)]="wechatgroup.created"/>
+            </div> -->
+            <button (click)="save()">Save</button>
+        </form>
+    </div>
 </div>

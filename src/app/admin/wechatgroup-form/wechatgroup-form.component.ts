@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+
 import { CommerceService } from '../../commerce/commerce.service';
 import { Category, WechatGroup } from '../../commerce/commerce';
 import { environment } from '../../../environments/environment';
@@ -17,7 +19,7 @@ export class AdminWechatGroupFormComponent implements OnInit {
     logo:any = environment.MEDIA_URL + 'empty.png';
     id:any;
 
-    constructor(private commerceServ:CommerceService, private router: Router, private route: ActivatedRoute){
+    constructor(private translate:TranslateService, private commerceServ:CommerceService, private router: Router, private route: ActivatedRoute){
 
     }
 
@@ -41,9 +43,11 @@ export class AdminWechatGroupFormComponent implements OnInit {
                 },
                 (err:any) => {
                     self.wechatgroup = new WechatGroup();
+                    self.wechatgroup.category = {'id':1};
                 });
             }else{
               self.wechatgroup = new WechatGroup();
+              self.wechatgroup.category = {'id':1};
             }
         });
     }

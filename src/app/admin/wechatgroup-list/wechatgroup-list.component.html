@@ -1,6 +1,4 @@
-<div class="page admin-wechatgroup-list">
-<div class="container wechatgroup-list">
-
+<div class="admin-wechatgroup-list">
     <div class="list-head">
 <!--         <div *ngFor="let field of fields">{{field}}</div> -->
     </div>
@@ -15,12 +13,12 @@
                     <div class="col">{{r.title}}</div>
                     <div class="col">{{r.description}}</div>
                     <div class="pull-right btn-area">
-                        <div class="btn" (click)="add()">Add</div>
-                        <div class="btn" (click)="change(r)">Change</div>
+                        <div class="btn" (click)="add()">{{'ADD'|translate}}</div>
+                        <div class="btn" (click)="change(r)">{{'CHANGE'|translate}}</div>
+                        <div class="btn" (click)="delete(r)">{{'DELETE'|translate}}</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>

@@ -59,6 +59,17 @@ export class CommerceService {
         });
     }
 
+    rmCategory(id:number):Observable<any>{
+        const url = this.API_URL + 'category/' + id;
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this.http.delete(url, {'headers': headers}).map((res:any) => {
+            return res;
+        })
+        .catch((err) => {
+            return Observable.throw(err.message || err);
+        });
+    }
+
     getWechatGroupList(query?:string):Observable<WechatGroup[]>{
         const url = this.API_URL + 'wechatgroups' + (query ? query:'');
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -116,9 +127,9 @@ export class CommerceService {
             formData.append('id', d.id? d.id:'');
             formData.append('title', d.title);
             formData.append('description', d.description);
-            formData.append('n_subscription', d.n_subscription.toString());
-            formData.append('rating', d.rating.toString());
-            formData.append('user_id', d.user.id);
+            formData.append('n_subscription', '1');//d.n_subscription.toString());
+            formData.append('rating', '1');//d.rating.toString());
+            formData.append('user_id', '1');//d.user.id);
             formData.append('category_id', d.category.id);
             formData.append('created', d.created);
             formData.append('logo', d.logo);
@@ -126,8 +137,8 @@ export class CommerceService {
             var xhr = new XMLHttpRequest();
 
             xhr.onreadystatechange = function (e) {
-              if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
+              if (xhr.readyState === 4) { // done
+                if (xhr.status === 200) { // ok
                     resolve(JSON.parse(xhr.response));
                     //console.log(xhr.responseText);
                 } else {
@@ -148,23 +159,34 @@ export class CommerceService {
         }));
     }
 
-    updateWechatGroup(d:WechatGroup){
-        let token = localStorage.getItem('token-'+this.APP);
-        let formData = new FormData();
-        
-        formData.append('id', d.id? d.id:'');
-        formData.append('title', d.title);
-        formData.append('description', d.description);
-        formData.append('n_subscription', d.n_subscription.toString());
-        formData.append('rating', d.rating.toString());
-        formData.append('user_id', d.user.id);
-        formData.append('created', d.created);
-        formData.append('logo', d.logo);
-
-        var request = new XMLHttpRequest();
-        request.open("PATCH", this.API_URL + 'wechatgroup');
-        request.send(formData);
+    rmWechatGroup(id:number):Observable<any>{
+        const url = this.API_URL + 'wechatgroup/' + id;
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this.http.delete(url, {'headers': headers}).map((res:any) => {
+            return res;
+        })
+        .catch((err) => {
+            return Observable.throw(err.message || err);
+        });
     }
+
+    // updateWechatGroup(d:WechatGroup){
+    //     let token = localStorage.getItem('token-'+this.APP);
+    //     let formData = new FormData();
+        
+    //     formData.append('id', d.id? d.id:'');
+    //     formData.append('title', d.title);
+    //     formData.append('description', d.description);
+    //     formData.append('n_subscription', d.n_subscription.toString());
+    //     formData.append('rating', d.rating.toString());
+    //     formData.append('user_id', d.user.id);
+    //     formData.append('created', d.created);
+    //     formData.append('logo', d.logo);
+
+    //     var request = new XMLHttpRequest();
+    //     request.open("PATCH", this.API_URL + 'wechatgroup');
+    //     request.send(formData);
+    // }
 
     getQRList(query?:string):Observable<QR[]>{
         const url = this.API_URL + 'qR' + (query ? query:'');
@@ -288,20 +310,20 @@ export class CommerceService {
 //         return {'w':rw, 'h':rh};
 //     }
 
-//     resizeImage(frame_w:number, frame_h:number, w: number, h: number){
-//         var rw = 0;
-//         var rh = 0;
+    resizeImage(frame_w:number, frame_h:number, w: number, h: number){
+        var rw = 0;
+        var rh = 0;
 
-//         var h1 = h * (frame_w - 2) / w;  
-//         if( h1 > frame_h ){
-//           rh = frame_h;
-//           rw = w * frame_h / h;
-//         }else{
-//           rw = frame_w - 2;
-//           rh = h * (frame_w - 2) / w;
-//         }
-//         return {'w':Math.round(rw), 'h':Math.round(rh), 'padding_top': Math.round((frame_h - rh)/2) };
-//     }
+        var h1 = h * (frame_w - 2) / w;  
+        if( h1 > frame_h ){
+          rh = frame_h;
+          rw = w * frame_h / h;
+        }else{
+          rw = frame_w - 2;
+          rh = h * (frame_w - 2) / w;
+        }
+        return {'w':Math.round(rw), 'h':Math.round(rh), 'padding_top': Math.round((frame_h - rh)/2) };
+    }
 
   // resizeImage(canvas:any, img:any, max_w:number, max_h:number){
   //   var w = img.width;

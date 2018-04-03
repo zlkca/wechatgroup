@@ -39,6 +39,11 @@ export class AuthService {
         localStorage.removeItem('user-' + this.APP);
     };
 
+    hasLoggedIn(){
+        let v = localStorage.getItem('user-' + this.APP);
+        return v ? true : false;
+    }
+
     checkToken(token: string): Observable<any> {
         const url = this.API_URL + 'token';
         let self = this;

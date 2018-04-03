@@ -9,13 +9,17 @@ $tablet: "(min-width: 768px) and (max-width: 1199px)";
 $desktop: "(min-width: 1200px)";
 
 
-$border-color:#ccc;
+$border-color:#b0b0b0;
 $text-color:#585858;//#212529
 $text-inverse-color:#fff;
 $primary-color:#003e7e;
 $primary-focus-color:#11759a;
 
+$title-color:#7c7c7c;
+$title-s-color:#414851;
 $item-height:40px;
+$navbar-height:216px;
+$navbar-m-height:206px;
 
 .selected{
     display:block;
@@ -36,10 +40,10 @@ $item-height:40px;
   }
 
   .title-lg{
-      font-family: "Roboto", "Microsoft Yahei", Helvetica, Arial, sans-serif;
-      font-size: 32px;
+      font-family: "Microsoft Yahei", "Roboto", Helvetica, Arial, sans-serif;
+      font-size: 28px;
       font-weight: 500;
-      color: #9ca1a8;    
+      color: #7c7c7c;    
   }
 
   .title-bg{
@@ -61,9 +65,9 @@ $item-height:40px;
   .title-sm{
       font-family: "Microsoft Yahei",'Raleway', sans-serif;
       line-height:18px;
-      font-size:13px;
+      font-size:12px;
       font-weight:300;
-      color: #414851;
+      color: $title-s-color;
   }
 
   .title-xs{
@@ -76,12 +80,12 @@ $item-height:40px;
 
 .label-md{
   font-size:16px;
-  color:rgb(0, 0, 0);
+  color:$text-color;
 }
 
 .label-sm{
-  font-size:13px;
-  color:rgb(0, 0, 0);
+  font-size:14px;
+  color:$text-color;
 }
 
 .label-lg{
@@ -135,7 +139,7 @@ body{
     width:100%;
     min-width: 150px;
     height:$item-height;
-    border:1px solid #666; 
+    border:1px solid $border-color; 
     font-weight:400;
     text-align:center;
     border-radius: 0;
@@ -170,7 +174,9 @@ body{
       border:1px solid $border-color;
       padding:15px;
   }
-
+  input:not([type]), input[type="email" i], input[type="number" i], input[type="password" i], input[type="tel" i], input[type="url" i], input[type="text" i] {
+      padding: 10px;
+  }
   input[type="text"], input[type="password"], textarea, select{
       width:100%;
       border: 1px solid #b1b1b1;
@@ -248,7 +254,7 @@ body{
 
 
 .page{
-  margin-top:80px;
+  margin-top:$navbar-height;
   min-height:600px;
   padding:0px;
 }
@@ -279,11 +285,15 @@ body{
 
     .row{
       margin:0px;
-      padding:5px 10px;
+      padding:10px;
+    }
+    
+    .title{
+      padding-bottom:0px;
     }
 
     .btn-holder{
-      padding-top:12px;
+      padding-top:26px;
     }
 
     .error-msg{
@@ -324,6 +334,7 @@ body{
 
   @media #{$mobile}{
     .page{
+      margin-top:$navbar-m-height;
       min-height:500px;
     }
 
@@ -333,6 +344,7 @@ body{
   }
   @media #{$cellphone}{
     .page{
+      margin-top:$navbar-m-height;
       min-height:460px;
     }
     .auth-form{

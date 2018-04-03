@@ -17,24 +17,13 @@ import { WechatGroupComponent } from './pages/wechatgroup/wechatgroup.component'
 // import { LoginComponent } from './users/login/login.component';
 // import { SignupComponent } from './users/signup/signup.component';
 // import { ForgetPasswordComponent } from './users/forget-password/forget-password.component';
-
-// import { ShoppingCartComponent } from './products/shopping-cart/shopping-cart.component';
 // import { ProfileComponent } from './users/profile/profile.component';
 // import { ProfileEditComponent } from './users/profile-edit/profile-edit.component';
 // import { ChangePasswordComponent } from './users/change-password/change-password.component';
-// import { PaymentComponent } from './products/payment/payment.component';
-//import { BusinessDetailComponent } from './business/business-detail/business-detail.component';
 
 import { AdminLoginComponent } from './admin/login/login.component';
-import { AdminDashboardComponent } from './admin/dashboard/dashboard.component';
-import { AdminCategoryListComponent } from './admin/category-list/category-list.component';
-import { AdminCategoryFormComponent } from './admin/category-form/category-form.component';
-import { AdminWechatGroupListComponent } from './admin/wechatgroup-list/wechatgroup-list.component';
-import { AdminWechatGroupFormComponent } from './admin/wechatgroup-form/wechatgroup-form.component';
 
 import { WechatGroupListComponent } from './commerce/wechatgroup-list/wechatgroup-list.component';
-
-
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -63,16 +52,11 @@ const appRoutes: Routes = [
   // { path: 'profiles', component:ProfileComponent },
   // { path: 'profile-edit', component:ProfileEditComponent },
   // { path: 'change-password', component:ChangePasswordComponent },
-  { path: 'admin', component:AdminDashboardComponent },
+  // { path: 'admin', component:AdminDashboardComponent },
   { path: 'admin/login', component:AdminLoginComponent },
-  { path: 'admin/categories', component:AdminCategoryListComponent },
-  { path: 'admin/category/:id', component:AdminCategoryFormComponent },
-  { path: 'admin/category', component:AdminCategoryFormComponent },
-  { path: 'admin/wechatgroups', component:AdminWechatGroupListComponent },
-  { path: 'admin/wechatgroup/:id', component:AdminWechatGroupFormComponent },
-  { path: 'admin/wechatgroup', component:AdminWechatGroupFormComponent },
   { path: 'wechatgroups', component:WechatGroupListComponent },
   { path: 'wechatgroup/:id', component:WechatGroupComponent },
+  { path: 'home', component:HomeComponent },
   { path: '', component:HomeComponent }
 ];
 
@@ -83,7 +67,6 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    // CoreModule,
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(

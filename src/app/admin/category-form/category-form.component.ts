@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+
 import { CommerceService } from '../../commerce/commerce.service';
 import { Category } from '../../commerce/commerce';
 
 @Component({
     providers:[CommerceService],
-    selector: 'app-category-form',
+    selector: 'admin-category-form',
     templateUrl: './category-form.component.html',
     styleUrls: ['./category-form.component.scss']
 })
@@ -13,7 +15,7 @@ export class AdminCategoryFormComponent implements OnInit {
     category:Category = new Category();
     id:any;
 
-    constructor(private commerceServ:CommerceService, private router:Router, private route: ActivatedRoute){}
+    constructor(private translate:TranslateService, private commerceServ:CommerceService, private router:Router, private route: ActivatedRoute){}
 
     ngOnInit() {
         let self = this;
