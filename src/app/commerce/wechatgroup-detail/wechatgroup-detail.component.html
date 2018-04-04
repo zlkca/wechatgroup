@@ -1,0 +1,36 @@
+<div class="container wechatgroup-detail">
+<!--         <div class="row">
+            <div class="label-sm">n_subscription</div>
+            <input name="n_subscription" [(ngModel)]="wechatgroup.n_subscription"/>
+            <img style="width:100px;height:100px;" [src]="wechatgroup.logo"/>
+        </div> -->
+<!--         <div class="row">
+            <div>rating</div>
+            <input name="rating" [(ngModel)]="wechatgroup.rating"/>
+        </div> -->
+        <div class="row">
+            <div class="left-side">
+                <img src={{logo}} />
+            </div>
+            <div class="right-side">
+                <div class="title">{{wechatgroup.title}}</div>
+                <p class="row description">
+                    <span class="title-md">Introduction:&nbsp;</span>
+                    {{wechatgroup.description}}
+                </p>
+
+                    
+                <div class="row category">
+                <span class="title-md">Category:&nbsp;</span>{{categoryName}}
+                </div>
+            </div>
+        </div>
+<!--         <div class="row">
+            <div class="label-sm">user</div>
+            <input name="user" [(ngModel)]="wechatgroup.user"/>
+        </div> -->
+<!--         <div class="row">
+            <div>created</div>
+            <input name="created" [(ngModel)]="wechatgroup.created"/>
+        </div> -->
+</div>

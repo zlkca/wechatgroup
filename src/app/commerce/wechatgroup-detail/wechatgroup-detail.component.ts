@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-
 import { CommerceService } from '../../commerce/commerce.service';
 import { Category, WechatGroup } from '../../commerce/commerce';
 import { environment } from '../../../environments/environment';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     providers:[CommerceService],
-    selector: 'admin-wechatgroup-form',
-    templateUrl: './wechatgroup-form.component.html',
-    styleUrls: ['./wechatgroup-form.component.scss']
+    selector: 'wechatgroup-detail',
+    templateUrl: './wechatgroup-detail.component.html',
+    styleUrls: ['./wechatgroup-detail.component.scss']
 })
-export class AdminWechatGroupFormComponent implements OnInit {
-    MEDIA_URL = environment.APP_URL + '/media/';
+export class WechatGroupDetailComponent implements OnInit {
+    MEDIA_URL = environment.APP_URL+'/media/';
     categoryList:Category[] = [];
     wechatgroup:WechatGroup = new WechatGroup();
     logo:any = environment.APP_URL + '/media/empty.png';
+    categoryName:string = "";
     id:any;
 
     constructor(private translate:TranslateService, private commerceServ:CommerceService, private router: Router, private route: ActivatedRoute){
@@ -38,16 +38,21 @@ export class AdminWechatGroupFormComponent implements OnInit {
             if(params.id){
               self.commerceServ.getWechatGroup(params.id).subscribe(
                 (r:WechatGroup) => {
-                    self.logo = self.MEDIA_URL + '/' + r.logo;
+                    if(r.logo){
+                      self.logo = self.MEDIA_URL + r.logo;
+                    }
+                    
+                    if(r.category){
+                      self.categoryName = r.category.name;
+                    }
+                    
                     self.wechatgroup = r;
                 },
                 (err:any) => {
                     self.wechatgroup = new WechatGroup();
-                    self.wechatgroup.category = {'id':1};
                 });
             }else{
               self.wechatgroup = new WechatGroup();
-              self.wechatgroup.category = {'id':1};
             }
         });
     }
@@ -60,11 +65,11 @@ export class AdminWechatGroupFormComponent implements OnInit {
         self.commerceServ.saveWechatGroup(self.wechatgroup).subscribe(
             (r:any) => {
                 //self.wechatgroup = new WechatGroup(r.data[0]);
-                self.router.navigate(["admin/wechatgroups"]);
+                self.router.navigate(["wechatgroups"]);
             },
             (err:any) => {
                 //self.wechatgroup = new WechatGroup();
-                self.router.navigate(["admin/wechatgroups"]);
+                self.router.navigate(["wechatgroups"]);
             });
     }
 

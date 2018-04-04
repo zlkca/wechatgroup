@@ -1,0 +1,17 @@
+<div class="container">
+    <form class="qr-form">
+        <div class="row">
+            <div>title</div>
+            <input name="title" [(ngModel)]="qr.title"/>
+        </div>
+        <div class="row">
+            <div>image</div>
+            <input name="image" [(ngModel)]="qr.image"/>
+        </div>
+        <div class="row">
+            <div>wechatgroup</div>
+            <input name="wechatgroup" [(ngModel)]="qr.wechatgroup"/>
+        </div>
+        <button (click)="save()">Save</button>
+    </form>
+</div>
