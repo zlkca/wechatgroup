@@ -23,7 +23,7 @@ const MOBILE_WIDTH:number = 767;
 })
 export class WechatGroupListComponent implements OnInit {
     wechatgroupList:WechatGroup[];
-    MEDIA_URL = environment.MEDIA_URL;
+    MEDIA_URL = environment.APP_URL+'/media/';
     fields:string[] = [];
     item:any;
     frame:any;

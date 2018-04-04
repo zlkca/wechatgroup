@@ -13,7 +13,7 @@ import { environment } from '../../../environments/environment';
 })
 export class AdminWechatGroupListComponent implements OnInit {
     wechatgroupList:WechatGroup[];
-    MEDIA_URL = environment.MEDIA_URL;
+    MEDIA_URL = environment.APP_URL+'/media/';
     fields:string[] = [];
     constructor(private translate:TranslateService, private router:Router, private commerceServ:CommerceService){}
 

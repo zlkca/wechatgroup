@@ -13,10 +13,10 @@ import { environment } from '../../../environments/environment';
     styleUrls: ['./wechatgroup-form.component.scss']
 })
 export class AdminWechatGroupFormComponent implements OnInit {
-    MEDIA_URL = environment.MEDIA_URL;
+    MEDIA_URL = environment.APP_URL + '/media/';
     categoryList:Category[] = [];
     wechatgroup:WechatGroup = new WechatGroup();
-    logo:any = environment.MEDIA_URL + 'empty.png';
+    logo:any = environment.MEDIA_URL + '/media/empty.png';
     id:any;
 
     constructor(private translate:TranslateService, private commerceServ:CommerceService, private router: Router, private route: ActivatedRoute){
