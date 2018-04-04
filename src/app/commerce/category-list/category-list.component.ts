@@ -31,7 +31,7 @@ export class CategoryListComponent implements OnInit {
             });
     }
 
-    find(c){
+    find(c?:any){
         if(c){
             this.uiServ.emitMsg({name:'OnSearch', query:{category_id:c.id}});
         }else{
