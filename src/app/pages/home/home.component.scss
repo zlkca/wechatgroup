@@ -1,0 +1,48 @@
+$border-color:#b0b0b0;
+$search-btn-w:80px;
+.filter-area{
+    width:100%;
+    padding:0px 80px;
+
+    .search-box{
+        display:none;
+        margin-left:auto;
+        margin-right:auto;
+        margin-bottom:15px;
+        width:400px;
+
+        input{
+            width:calc(100% - 80px);
+            float: left;
+        }
+
+        .btn-search{
+            border:1px solid $border-color;
+            border-left:none;
+            min-width: $search-btn-w;
+            width: $search-btn-w;
+            float: left;
+        }
+    }
+
+    .category-area{
+        padding-left:20px;
+        .label-block{
+            width:50px;
+        }
+        .category-area{
+            width:calc(100% - 50px);
+        }
+    }
+}
+
+
+@media (max-width: 767px){
+    .filter-area{
+        padding:0px 10px;
+
+        .search-box{
+            display:block;
+        }
+    }
+}
