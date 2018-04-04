@@ -1,8 +1,12 @@
 {
+    "ACTIVE_ACCOUNT_MSG":"请检查邮箱是否已激活账号",
+    "ACTIVE_ACCOUNT_SUCESS_MSG":"您已经成功激活账户，请点击",
+    "ACTIVE_ACCOUNT_ERROR_MSG":"您的激活账号链接已失效，请点击",
     "ACTIVE_EMAIL_SENT":"激活邮件已发送！",
     "ADD":"添加",
     "ADMIN":"管理员",
     "ADMIN_LOGIN":"管理员登录",
+    "ADMIN_WECHAT":"管理员微信",
     "ALBUM":"专辑",
     "ALL":"全部",
     "AUTHOR":"作者",
@@ -19,8 +23,7 @@
     "USERNAME_OR_EMAIL":"用户名或邮箱",
     "PASSWORD":"密码",
     
-    "LOGIN":"Login",
-    "LOGIN":"登录",
+
     "USERNAME":"用户名",
     "EMAIL":"邮箱",
     "PHONE_NUM":"电话号码",
@@ -89,7 +92,7 @@
     "FORGOT_PASSWORD":"忘记密码",
     "DELETE":"删除",
     "CHECKOUT":"付款方式",
-    "SHOPPINGCART":"购物车",
+    
     "TOTAL":"总计",
     "CONTINUE_SHOPPING":"继续购物",
     "ACTION":"操作",
@@ -102,21 +105,28 @@
     "INSTITUTION":"机构",
     "FIRSTNAME":"名",
     "LASTNAME":"姓",
+    "LOGIN":"登录",
+    "LOGO":"图标",
+
     "USER_DESCRIPTION":"简介",
     "TELEPHONE_NUMBER":"联系电话",
     "PROVINCE":"省",
-    "CITY":"市",
-    "COUNTRY":"国家",
+
     "BILLING_ADDRESS":"账单地址",
     "ADDRESS":"地址",
     "ADDRESS_AREA":"所在地区",
     "ZIP_CODE":"邮政编码",
     "AVAILABLE":"待出售",
     "PURCHASED":"已购买",
+
+    "CITY":"市",
+    "COUNTRY":"国家",
     "CURRENT":"出售中",
-    "SOLD":"已卖出",
     "CONFIRM":"请确认",
     "CONFIRM_SELL_MESSAGE":"是否现在出售此照片?",
+    "CHECK_TOKEN":"验证照片",
+    "CONTACT_WAYS":"联系方式",
+
     "NOT_NOW":"不是现在",
     "USD":"美元",
     "CAD":"加币",
@@ -133,17 +143,17 @@
     "CLEAR_FILTER":"清除筛选条件",
     "TOKEN":"验证码",
     "GET_TOKEN":"获取验证码",
-    "CHECK_TOKEN":"验证照片",
-    
-    "CONTACT_WAYS":"联系方式",
-    "QUESTION_COMMENTS":"欢迎各种问题，意见和建议：",
-    "SUPPORT_MESSAGE":"意见和建议不能为空",
+
+
     "LOGIN_MESSAGE":"请先登陆",
     "PHOTO_LIST_PAGE":"照片列表",
     "NO_FAVORITE_OWNERS_MSG_FIRST":"目前您还没有关注任何用户，请点击",
     "NO_FAVORITE_OWNERS_MSG_SECOND":", 选择照片进入详情, 点击所有所有者链接进入其页面，点击关注可添加此用户到您的关注列表",
     "NO_FAVORITED_BY_OWNERS_MSG":"目前还没有关注您的用户",
+    
     "INVALID_TOKEN":"验证码有误",
+    "INTRODUCTION":"简介",
+
     "CORRECT_TOKEN":"验证码正确",
     "MY-FOLLOW":"我的关注",
     "MY-FAVORITE-PRODUCTS":"我喜爱的作品",
@@ -153,14 +163,29 @@
     "INVALID_PASSOWRD":"密码不正确",
     "NEW_PASSWORD_DIFF":"新密码不一致",
     
-    "ACTIVE_ACCOUNT_MSG":"请检查邮箱是否已激活账号",
-    "ACTIVE_ACCOUNT_SUCESS_MSG":"您已经成功激活账户，请点击",
-    "ACTIVE_ACCOUNT_ERROR_MSG":"您的激活账号链接已失效，请点击",
+
     "HERE":"这里",
     "TO_LOGIN":"登陆",
     "PRICE_UNDECIDED":"价格未定",
     
-    
+    "QR_CODE":"二维码",
+    "QUESTION_COMMENTS":"欢迎各种问题，意见和建议：",
+
+    "SAVE":"保存",
+    "SEARCH":"搜索",
+    "SEARCH_BY_ARTIST":"按作者姓名查找",
+    "SEARCH_BY_KEYWORD":"请输入搜索关键词",
+    "SEND":"发送",
+    "SEND_SUCCESSFULLY":"发送成功!",
+    "SEND_FAIL":"发送失败!",
+    "SHOPPINGCART_EMPTY":"您的购物车内没有物品",
+    "SLIDE1_TITLE":"Find a better investment advisor Now",
+    "SLIDE1_SUBTITLE":"Did you run faster than Ontario inflation rate 1.9% last year?",
+    "SHOPPINGCART":"购物车",
+    "SOLD":"已卖出",
+    "SUBTOTAL":"小计",
+    "SUPPORT_MESSAGE":"意见和建议不能为空",
+
     "EMAIL-MSG_FIRST":"请移步您的邮箱",
     "EMAIL-MSG_SECOND":"收取邮件，点击验证链接完成注册。",
     "EMAIL-TIPS":"温馨提示：激活邮件可能会移至“垃圾邮箱”中，请仔细查阅。",
@@ -179,24 +204,16 @@
     "EXPIRY_MONTH":"有效月份",
     "EXPIRY_YEAR":"有效年份",
     "PRODUCT":"产品",
-    "SUBTOTAL":"小计",
+    
     "TAXES":"税",
     "GRAND_TOATL":"总计",
-    "SEND":"发送",
+    
     "NAME":"名称",
 
     "MESSAGE":"消息",
     "MESSAGE_SUBTITLE":"我们将尽快与您联系",
     "INVALID_FORM":"请填写完整信息",
 
-    "SEARCH":"搜索",
-    "SEARCH_BY_ARTIST":"按作者姓名查找",
-    "SEARCH_BY_KEYWORD":"请输入搜索关键词",
-    "SEND_SUCCESSFULLY":"发送成功!",
-    "SEND_FAIL":"发送失败!",
-    "SHOPPINGCART_EMPTY":"您的购物车内没有物品",
-    "SLIDE1_TITLE":"Find a better investment advisor Now",
-    "SLIDE1_SUBTITLE":"Did you run faster than Ontario inflation rate 1.9% last year?",
 
     "EXPAND":"展开",
     "COLLAPSE":"收起"

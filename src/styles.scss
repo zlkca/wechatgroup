@@ -177,6 +177,7 @@ body{
   input:not([type]), input[type="email" i], input[type="number" i], input[type="password" i], input[type="tel" i], input[type="url" i], input[type="text" i] {
       padding: 10px;
   }
+
   input[type="text"], input[type="password"], textarea, select{
       width:100%;
       border: 1px solid #b1b1b1;
@@ -235,6 +236,10 @@ body{
     .row{
       padding: 10px;
       width:100%;
+
+      select{
+        width:300px;
+      }
     }
   }
 

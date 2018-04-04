@@ -13,6 +13,24 @@ export class Category{
       }
   }
 }
+
+export class Wechat{
+  public id:string;
+  public title:string;
+  public description:string;
+  public logo:string;
+  public created:string;
+    constructor(o?:any){
+        if(o){
+            this.id = o.id;
+            this.title = o.title;
+            this.description = o.description;
+            this.logo = o.logo;
+            this.created = o.created;
+      }
+  }
+}
+
 export class WechatGroup{
   public id:string;
   public title:string;

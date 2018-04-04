@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { environment } from '../../environments/environment';
-import { Category,WechatGroup,QR,Subscription } from './commerce';
+import { Category,WechatGroup,Wechat,QR,Subscription } from './commerce';
 import 'rxjs/add/observable/fromPromise';
 @Injectable()
 export class CommerceService {
@@ -13,7 +13,7 @@ export class CommerceService {
     private APP = environment.APP;
 
     constructor(private http:HttpClient){ }
-    getCategoryList(query?:string):Observable<Category[]>{
+    getCategoryList(query?:string):Observable<any>{
         const url = this.API_URL + 'categories' + (query ? query:'');
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         return this.http.get(url, {'headers': headers}).map((res:any) => {
@@ -63,14 +63,21 @@ export class CommerceService {
         const url = this.API_URL + 'category/' + id;
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         return this.http.delete(url, {'headers': headers}).map((res:any) => {
-            return res;
+            let a:Category[] = [];
+            let d = res.data;
+            if( d && d.length > 0){
+                for(var i=0; i<d.length; i++){
+                    a.push(new Category(d[i]));
+                }
+            }
+            return a;
         })
         .catch((err) => {
             return Observable.throw(err.message || err);
         });
     }
 
-    getWechatGroupList(query?:string):Observable<WechatGroup[]>{
+    getWechatGroupList(query?:string):Observable<any>{
         const url = this.API_URL + 'wechatgroups' + (query ? query:'');
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         return this.http.get(url, {'headers': headers}).map((res:any) => {
@@ -163,11 +170,65 @@ export class CommerceService {
         const url = this.API_URL + 'wechatgroup/' + id;
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         return this.http.delete(url, {'headers': headers}).map((res:any) => {
-            return res;
+            let a:WechatGroup[] = [];
+            let d = res.data;
+            if( d && d.length > 0){
+                for(var i=0; i<d.length; i++){
+                    a.push(new WechatGroup(d[i]));
+                }
+            }
+            return a;
         })
         .catch((err) => {
             return Observable.throw(err.message || err);
         });
+    }
+    getWechat(id:number):Observable<Wechat>{
+        const url = this.API_URL + 'wechat/1';
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this.http.get(url, {'headers': headers}).map((res:any) => {
+            return new Wechat(res.data);
+        })
+        .catch((err) => {
+            return Observable.throw(err.message || err);
+        });
+    }
+
+    saveWechat(d:Wechat){
+        let token = localStorage.getItem('token-' + this.APP);
+        return Observable.fromPromise(new Promise((resolve, reject)=>{
+            
+            let formData = new FormData();
+            
+            formData.append('id', d.id? d.id:'');
+            formData.append('title', d.title);
+            formData.append('description', d.description);
+            formData.append('created', d.created);
+            formData.append('logo', d.logo);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function (e) {
+              if (xhr.readyState === 4) { // done
+                if (xhr.status === 200) { // ok
+                    resolve(JSON.parse(xhr.response));
+                    //console.log(xhr.responseText);
+                } else {
+                    reject(xhr.response);
+                    //console.error(xhr.statusText);
+                }
+              }
+            };
+
+            xhr.onerror = function (e) {
+                reject(xhr.response);
+                //console.error(xhr.statusText);
+            };
+
+            xhr.open("POST", this.API_URL + 'wechat', true);
+            xhr.setRequestHeader("authorization", "Basic " + btoa(token));
+            xhr.send(formData);
+        }));
     }
 
     // updateWechatGroup(d:WechatGroup){

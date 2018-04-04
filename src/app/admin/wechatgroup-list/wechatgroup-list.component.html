@@ -1,8 +1,9 @@
 <div class="admin-wechatgroup-list">
+    <div class="title-md">{{'WECHAT_GROUP'|translate}}:</div>
     <div class="list-head">
 <!--         <div *ngFor="let field of fields">{{field}}</div> -->
     </div>
-    <div class="list-body">
+    <div class="list-body" *ngIf="wechatgroupList?.length > 0">
         <div class="row" *ngFor="let r of wechatgroupList">
             <!-- <div *ngFor="let field of fields">{{r[field]}}</div> -->
             <div class="left-side">
@@ -10,9 +11,9 @@
             </div>
             <div class="right-side">
                 <div class="row">
-                    <div class="col">{{r.title}}</div>
-                    <div class="col">{{r.description}}</div>
-                    <div class="pull-right btn-area">
+                    <div class="col-md-3">{{r.title}}</div>
+                    <div class="col-md-5">{{r.description}}</div>
+                    <div class="col-md-4 pull-right btn-area">
                         <div class="btn" (click)="add()">{{'ADD'|translate}}</div>
                         <div class="btn" (click)="change(r)">{{'CHANGE'|translate}}</div>
                         <div class="btn" (click)="delete(r)">{{'DELETE'|translate}}</div>

@@ -5,11 +5,11 @@
     </button>
 
 
-                <div class="nav-item my-qr-m">
-                    <img src="http://localhost:8000/media/logo/0/0/5aa907fa7ed03.png" />
-                    <div class="title-sm">*{{'NOTE_ADD_US' | translate}}</div>
-                    <div class="title-sm">**{{'NOTE_CREATE_YOUR_GROUP' | translate}}</div>
-                </div>
+    <div class="nav-item my-qr-m">
+        <img [src]="logo" />
+        <div class="title-sm">*{{wechat.title}}</div>
+        <div class="title-sm">**{{wechat.description}}</div>
+    </div>
 
     <a class="navbar-brand" href="#">
         <img class="logo-icon" src="/assets/images/logo.png" />
@@ -41,9 +41,9 @@
                     </div>
                 </li>
                 <li class="nav-item my-qr">
-                    <img src="http://localhost:8000/media/logo/0/0/5aa907fa7ed03.png" />
-                    <div class="title-sm">*{{'NOTE_ADD_US' | translate}}</div>
-                    <div class="title-sm">**{{'NOTE_CREATE_YOUR_GROUP' | translate}}</div>
+                    <img [src]="logo" />
+                    <div class="title-sm">*{{wechat.title}}</div>
+                    <div class="title-sm">**{{wechat.description}}</div>
                 </li>
             <!--           <li class="nav-item language-menu">
                 <a class="nav-link"  (click)="changeLanguage('en')">English</a>

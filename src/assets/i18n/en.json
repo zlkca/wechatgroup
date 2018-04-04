@@ -1,8 +1,12 @@
 {
+    "ACTIVE_ACCOUNT_MSG":"Check your email to activate the account",
+    "ACTIVE_ACCOUNT_SUCESS_MSG":"You have activated your account successfully, please click ",
+    "ACTIVE_ACCOUNT_ERROR_MSG":"Your activated link has been expired, please click ",
     "ACTIVE_EMAIL_SENT":"Activated email has been sent!",
     "ADD":"Add",
     "ADMIN":"Admin",
     "ADMIN_LOGIN":"Admin Login",
+    "ADMIN_WECHAT":"Admin Wechat",
     "ALBUM":"Album",
     "ALL":"All",
     "AUTHOR":"Author",
@@ -15,11 +19,19 @@
     "CONFIRM_PASSWORD":"Confirm Password",
     "CONTACT_US":"Contact Us",
     "CREATE_NEW_ACCOUNT":"Create New Account",
+    "CHECKOUT":"Check out",
+    "CONTINUE_SHOPPING":"Continue Shopping",
+    "COLLECTOR":"Collector",
+    "CURRENT":"Current",
+    "CONFIRM":"Please Confirm",
+    "CONFIRM_SELL_MESSAGE":"Do you want to sell this item now?",
+
+    
     "DELETE":"Delete",
     "USERNAME_OR_EMAIL":"Username or Email",
     "PASSWORD":"Password",
     
-    "LOGIN":"Login",
+
     "USERNAME":"Username",
     "EMAIL":"Email",
     "PHONE_NUM":"Phone Number",
@@ -63,7 +75,7 @@
     "BUY":"Buy",
     "PRICE_TBD":"Unknow Price",
     "ABOUT":"About",
-    "SUPPORT":"Support",
+
     "ACCOUNT":"Account",
     "PROFILE":"Profile",
     "PREVIOUS":"Previous",
@@ -80,10 +92,12 @@
     "EMAIL_TEMP_PASSWORD":"Email Temporary Password",
     "FORGOT_PASSWORD":"Forgot Password",
     "DELETE":"Delete",
-    "CHECKOUT":"Check out",
-    "SHOPPINGCART":"Shopping Cart",
+    
+    
     "TOTAL":"Total",
-    "CONTINUE_SHOPPING":"Continue Shopping",
+
+
+
     "ACTION":"Action",
 
     "NEED_AN_ACCOUNT":"Need an account?",
@@ -94,10 +108,15 @@
     "MY_INVENTORY":"My Inventory",
     
     "ARTIST":"Artist",
-    "COLLECTOR":"Collector",
+
+
     "INSTITUTION":"Institution",
     "FIRSTNAME":"First Name",
+
     "LASTNAME":"Last Name",
+    "LOGIN":"Login",
+    "LOGO":"Logo",
+
     "USER_DESCRIPTION":"Description",
     "TELEPHONE_NUMBER":"Telephone Number",
     "PROVINCE":"Province",
@@ -109,10 +128,7 @@
     "ZIP_CODE":"Post Code",
     "AVAILABLE":"Available",
     "PURCHASED":"Purchased",
-    "CURRENT":"Current",
-    "SOLD":"Sold",
-    "CONFIRM":"Please Confirm",
-    "CONFIRM_SELL_MESSAGE":"Do you want to sell this item now?",
+
     "NOT_NOW":"Not Now",
     "RESULTS":"Results",
     "OWNER":"Owner",
@@ -129,13 +145,16 @@
     "CHECK_TOKEN":"Check Photo",
     "CONTACT_WAYS":"Contact ways",
     "QUESTION_COMMENTS":"Questions and Comments?",
-    "SUPPORT_MESSAGE":"Support Message is required",
+
     "LOGIN_MESSAGE":"Please login first",
     "PHOTO_LIST_PAGE":"Photo List Page",
     "NO_FAVORITE_OWNERS_MSG_FIRST":"You don't have any favorite owner, select a photo from ",
     "NO_FAVORITE_OWNERS_MSG_SECOND":",  then select a photo detail page, click the link of owner's page and click 'like' button to add him to your favorite owner list",
     "NO_FAVORITED_BY_OWNERS_MSG":"Currently you don't have any owners that followed you",
+    
     "INVALID_TOKEN":"The token is invalid",
+    "INTRODUCTION":"Introduction",
+
     "CORRECT_TOKEN":"The token is correct",
     "MY-FOLLOW":"My Follow",
     "MY-FAVORITE-PRODUCTS":"My Favorite Products",
@@ -145,14 +164,27 @@
     "INVALID_PASSOWRD":"Invalid Password",
     "NEW_PASSWORD_DIFF":"New Password confirmation is wrong",
 
-    "ACTIVE_ACCOUNT_MSG":"Check your email to activate the account",
-    "ACTIVE_ACCOUNT_SUCESS_MSG":"You have activated your account successfully, please click ",
-    "ACTIVE_ACCOUNT_ERROR_MSG":"Your activated link has been expired, please click ",
+
     "HERE":"here",
     "TO_LOGIN":" to login",
     "PRICE_UNDECIDED":"Price Undecided",
 
-    
+    "SAVE":"Save",
+    "SEND":"Send",
+    "SEARCH":"Search",
+    "SEARCH_BY_ARTIST":"Search by Artist",
+    "SEARCH_BY_KEYWORD":"Search",
+    "SEND_SUCCESSFULLY":"Send Successfully!",
+    "SEND_FAIL":"Send Fail!",
+    "SHOPPINGCART_EMPTY":"Your Shopping Cart is Empty",
+    "SLIDE1_TITLE":"Find a better investment advisor",
+    "SLIDE1_SUBTITLE":"Did you run faster than Ontario inflation rate 1.9% last year?",
+    "SHOPPINGCART":"Shopping Cart",
+    "SUPPORT":"Support",
+    "SOLD":"Sold",
+    "SUBTOTAL":"Subtotal",
+    "SUPPORT_MESSAGE":"Support Message is required",
+    "QR_CODE":"QR Code",
     
     "EMAIL-MSG_FIRST":"Please go to your email box ",
     "EMAIL-MSG_SECOND":", click the link to complete your signup",
@@ -171,23 +203,16 @@
     "EXPIRY_MONTH":"*Expiry Month",
     "EXPIRY_YEAR":"*Expiry Year",
     "PRODUCT":"Product",
-    "SUBTOTAL":"Subtotal",
+    
     "TAXES":"Taxes",
     "GRAND_TOATL":"Grand Total",
-    "SEND":"Send",
+    
     "NAME":"Name",
     "MESSAGE":"Message",
     "MESSAGE_SUBTITLE":"We will reply you ASAP",
     "INVALID_FORM":"Please fill in all the blanks",
 
-    "SEARCH":"Search",
-    "SEARCH_BY_ARTIST":"Search by Artist",
-    "SEARCH_BY_KEYWORD":"Search",
-    "SEND_SUCCESSFULLY":"Send Successfully!",
-    "SEND_FAIL":"Send Fail!",
-    "SHOPPINGCART_EMPTY":"Your Shopping Cart is Empty",
-    "SLIDE1_TITLE":"Find a better investment advisor",
-    "SLIDE1_SUBTITLE":"Did you run faster than Ontario inflation rate 1.9% last year?",
+
 
     "EXPND":"Expand",
     "COLLAPSE":"Collapse"

@@ -1,11 +1,12 @@
-<div class="page admin-dashbord">
+<div class="page admin-dashboard">
     <div class="container">
         <div class="row">
-            <div class="col-md-2 left-side">
-                <div class="menu" (click)="toPage('admin/categories')">{{'CATEGORY'|translate}}</div>
-                <div class="menu" (click)="toPage('admin/wechatgroups')">{{'WECHAT_GROUP'|translate}}</div>
+            <div class="col-md-3 left-side">
+                <div class="menu-item title-md" (click)="toPage('admin/categories')">{{'CATEGORY'|translate}}</div>
+                <div class="menu-item title-md" (click)="toPage('admin/wechatgroups')">{{'WECHAT_GROUP'|translate}}</div>
+                <div class="menu-item title-md" (click)="toPage('admin/wechat')">{{'ADMIN_WECHAT'|translate}}</div>
             </div>
-            <div class="col-md-10 right-side">
+            <div class="col-md-9 right-side">
 <!--                 <admin-category-list *ngIf="page=='category-list'"></admin-category-list>
                 <admin-category-form *ngIf="page=='category-form'"></admin-category-form>
                 <admin-wechatgroup-list *ngIf="page=='wechatgroup-list'"></admin-wechatgroup-list>

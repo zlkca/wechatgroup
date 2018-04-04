@@ -1,9 +1,10 @@
 <div class="admin-category-list">
+    <div class="title-md">{{'CATEGORY'|translate}}:</div>
     <div class="list-head">
         <!-- <div class="field" *ngFor="let field of fields">{{field}}</div> -->
     
     </div>
-    <div class="list-body">
+    <div class="list-body" *ngIf="categoryList?.length > 0">
         <div class="row" *ngFor="let r of categoryList">
             <!-- <div class="col" *ngFor="let field of fields">{{r[field]}}</div> -->
             <div class="col">{{r.name}}</div>

@@ -12,6 +12,15 @@
             .right-side{
                 width:calc(100% - 120px);
                 margin-left:15px;
+
+                .btn-area{
+                    .btn{
+                        width: 60px;
+                        min-width: 60px;
+                        font-size: 14px;
+                        margin-left:5px;
+                    }
+                }
             }
         }
     }

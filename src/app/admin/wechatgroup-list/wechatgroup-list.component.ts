@@ -24,8 +24,9 @@ export class AdminWechatGroupListComponent implements OnInit {
         this.commerceServ.getWechatGroupList().subscribe(
             (r:WechatGroup[]) => {
                 self.wechatgroupList = r;
-                self.fields = Object.keys(r[0]);
-                if(r.length == 0){
+                if(r.length){
+                    self.fields = Object.keys(r[0]);
+                }else{
                     self.router.navigate(["admin/wechatgroup"]);
                 }
             },
@@ -51,8 +52,16 @@ export class AdminWechatGroupListComponent implements OnInit {
     }
 
     delete(r){
+        let self = this;
         this.commerceServ.rmWechatGroup(r.id).subscribe(
-            (ret)=>{},
+            (r:WechatGroup[]) => {
+                self.wechatgroupList = r;
+                if(r.length){
+                    self.fields = Object.keys(r[0]);
+                }else{
+                    self.router.navigate(["admin/wechatgroup"]);
+                }
+            },
             (err)=>{}
         )}
 }

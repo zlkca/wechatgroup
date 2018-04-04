@@ -9,6 +9,7 @@ import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryFormComponent } from './category-form/category-form.component';
 import { WechatGroupListComponent } from './wechatgroup-list/wechatgroup-list.component';
 import { WechatGroupDetailComponent } from './wechatgroup-detail/wechatgroup-detail.component';
+
 import { QRListComponent } from './qr-list/qr-list.component';
 import { QRFormComponent } from './qr-form/qr-form.component';
 import { SubscriptionListComponent } from './subscription-list/subscription-list.component';

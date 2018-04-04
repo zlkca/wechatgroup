@@ -1,12 +1,14 @@
 <div class="admin-wechatgroup-form">
     <div class="container">
+        <div class="title-md">{{'WECHAT_GROUP'|translate}}:</div>
+        
         <form class="wechatgroup-form">
             <div class="row">
-                <div class="label-sm">title</div>
+                <div class="label-sm">{{'TITLE'|translate}}</div>
                 <input name="title" [(ngModel)]="wechatgroup.title"/>
             </div>
             <div class="row">
-                <div class="label-sm">description</div>
+                <div class="label-sm">{{'DESCRIPTION'|translate}}</div>
                 <textarea name="description" [(ngModel)]="wechatgroup.description"></textarea>
             </div>
     <!--         <div class="row">
@@ -19,7 +21,7 @@
                 <input name="rating" [(ngModel)]="wechatgroup.rating"/>
             </div> -->
             <div class="row">
-                <div class="label-sm">image</div>
+                <div class="label-sm">{{'LOGO'|translate}}</div>
                 <input name="logo" type="file" (change)="onFileChange($event)" />
                 <img [src]="logo" />
     <!--             <div class="canvas-frame">
@@ -31,7 +33,7 @@
                 <input name="user" [(ngModel)]="wechatgroup.user"/>
             </div> -->
             <div class="row">
-                <div class="label-sm">category</div>
+                <div class="label-sm">{{'CATEGORY'|translate}}</div>
                 <select name="category" [(ngModel)]="wechatgroup.category.id">
                     <option *ngFor="let cat of categoryList" [value]="cat.id">{{cat.name}}</option>
                 </select>
@@ -40,7 +42,7 @@
                 <div>created</div>
                 <input name="created" [(ngModel)]="wechatgroup.created"/>
             </div> -->
-            <button (click)="save()">Save</button>
+            <button (click)="save()">{{'SAVE'|translate}}</button>
         </form>
     </div>
 </div>

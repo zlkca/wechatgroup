@@ -1,0 +1,24 @@
+<div class="admin-wechat-form">
+    <div class="container">
+        <div class="title-md">{{'ADMIN_WECHAT'|translate}}:</div>
+        <form class="wechat-form">
+            <div class="row">
+                <div class="label-sm">{{'TITLE'|translate}}</div>
+                <input name="title" [(ngModel)]="wechat.title"/>
+            </div>
+            <div class="row">
+                <div class="label-sm">{{'DESCRIPTION'|translate}}</div>
+                <textarea name="description" [(ngModel)]="wechat.description"></textarea>
+            </div>
+            <div class="row">
+                <div class="label-sm">{{'QR_CODE'|translate}}</div>
+                <input name="logo" type="file" (change)="onFileChange($event)" />
+                <img [src]="logo" />
+    <!--             <div class="canvas-frame">
+                    <canvas id="item-canvas" [style.width.px]="CANVAS_W" [style.marginTop.px]="FRAME_PADDING_H"></canvas>
+                </div> -->
+            </div>
+            <button (click)="save()">{{'SAVE'|translate}}</button>
+        </form>
+    </div>
+</div>

@@ -23,8 +23,9 @@ export class AdminCategoryListComponent implements OnInit {
         this.commerceServ.getCategoryList().subscribe(
             (r:Category[]) => {
                 self.categoryList = r;
-                self.fields = Object.keys(r[0]);
-                if(r.length == 0){
+                if(r.length){
+                    self.fields = Object.keys(r[0]);
+                }else{
                     self.router.navigate(["admin/category"]);
                 }
             },
@@ -42,9 +43,19 @@ export class AdminCategoryListComponent implements OnInit {
     }
 
     delete(r){
+        let self = this;
         this.commerceServ.rmCategory(r.id).subscribe(
-            (ret)=>{},
-            (err)=>{}
+            (r:Category[]) => {
+                self.categoryList = r;
+                if(r.length){
+                    self.fields = Object.keys(r[0]);
+                }else{
+                    self.router.navigate(["admin/category"]);
+                }
+            },
+            (err)=>{
+                
+            }
         )
     }
 }

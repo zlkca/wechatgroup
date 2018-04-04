@@ -3,17 +3,19 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../account/auth.service';
 import { UiService } from '../ui.service';
+import { CommerceService } from '../../commerce/commerce.service';
 import { CategoryListComponent } from '../../commerce/category-list/category-list.component';
+import { Wechat } from '../../commerce/commerce';
 
 import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
-
+import { environment } from '../../../environments/environment';
 declare var $: any;
 
 @Component({
-    providers:[AuthService],
+    providers:[AuthService, CommerceService],
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
@@ -23,8 +25,11 @@ export class HeaderComponent implements OnInit {
     user:any;
     keyword:string;
     term$ = new Subject<string>();
+    MEDIA_URL = environment.APP_URL+'/media/';
+    wechat:any = new Wechat();
+    logo:any;
 
-    constructor(private router:Router, private authServ:AuthService, 
+    constructor(private router:Router, private authServ:AuthService, private commerceServ:CommerceService, 
         private uiServ:UiService, private translateServ:TranslateService) {
 
         let self = this;
@@ -41,12 +46,27 @@ export class HeaderComponent implements OnInit {
         this.uiServ.getMsg().subscribe(msg => {
             if('OnUpdateHeader' === msg.name){
                 self.isLogin = self.authServ.hasLoggedIn();
+                self.updateWechat();
             }
         });
 
         self.isLogin = self.authServ.hasLoggedIn();
+
+        self.updateWechat();
     }
-    
+
+    updateWechat(){
+        let self = this;
+        self.commerceServ.getWechat(1).subscribe(
+          (r:Wechat) => {
+              self.logo = self.MEDIA_URL + r.logo;
+              self.wechat = r;
+          },
+          (err:any) => {
+              self.wechat = new Wechat();
+          });
+    }
+
     search(keyword){
         let self = this;
         self.uiServ.emitMsg({name:'OnSearch', query:{'keyword':keyword}})

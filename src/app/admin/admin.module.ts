@@ -16,6 +16,8 @@ import { AdminCategoryListComponent } from './category-list/category-list.compon
 import { AdminCategoryFormComponent } from './category-form/category-form.component';
 import { AdminWechatGroupListComponent } from './wechatgroup-list/wechatgroup-list.component';
 import { AdminWechatGroupFormComponent } from './wechatgroup-form/wechatgroup-form.component';
+import { AdminWechatFormComponent } from './wechat-form/wechat-form.component';
+
 import { AdminDashboardComponent } from './dashboard/dashboard.component';
 
 const adminRoutes:Routes = [
@@ -29,7 +31,8 @@ const adminRoutes:Routes = [
       { path: 'category', component:AdminCategoryFormComponent },
       { path: 'wechatgroups', component:AdminWechatGroupListComponent},
       { path: 'wechatgroup/:id', component:AdminWechatGroupFormComponent },
-      { path: 'wechatgroup', component:AdminWechatGroupFormComponent}
+      { path: 'wechatgroup', component:AdminWechatGroupFormComponent},
+      { path: 'wechat', component:AdminWechatFormComponent}
     ]
   }
 ]
@@ -47,6 +50,7 @@ const adminRoutes:Routes = [
         RouterModule.forChild(adminRoutes)
   ],
   exports:[RouterModule],
-  declarations: [AdminLoginComponent, AdminCategoryListComponent, AdminCategoryFormComponent, AdminWechatGroupListComponent, AdminWechatGroupFormComponent, AdminDashboardComponent]
+  declarations: [AdminLoginComponent, AdminCategoryListComponent, AdminCategoryFormComponent, 
+  AdminWechatGroupListComponent, AdminWechatGroupFormComponent, AdminWechatFormComponent, AdminDashboardComponent]
 })
 export class AdminModule { }
