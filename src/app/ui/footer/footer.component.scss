@@ -1,0 +1,41 @@
+$cellphone: "(max-width: 575px)";
+$mobile: "(min-width:576px) and (max-width: 767px)";
+$tablet: "(min-width: 768px) and (max-width: 1199px)";
+$desktop: "(min-width: 1200px)";
+
+footer{
+    height:100px;
+    padding:75px 15px 0px 80px;
+
+    .copyright {
+        font: 400 14px/14px 'Ubuntu', sans-serif;
+        color: #414851;
+    }
+
+    a {
+        color: #414851 !important;
+        font: 400 14px/14px 'Ubuntu', sans-serif;
+    }
+
+    span{
+        font: 400 14px/14px 'Ubuntu', sans-serif;
+    }
+
+    .created{
+        font-size:11px;
+        a{
+            font-size:11px;
+        }
+    }
+
+    @media #{$tablet}{
+
+    }
+
+    @media #{$mobile}{
+        font-size:14px;
+    }
+    @media #{$cellphone}{
+        font-size:12px;
+    }
+}
