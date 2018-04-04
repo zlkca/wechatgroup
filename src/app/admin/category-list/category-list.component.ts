@@ -24,6 +24,9 @@ export class AdminCategoryListComponent implements OnInit {
             (r:Category[]) => {
                 self.categoryList = r;
                 self.fields = Object.keys(r[0]);
+                if(r.length == 0){
+                    self.router.navigate(["admin/category"]);
+                }
             },
             (err:any) => {
                 self.categoryList = [];

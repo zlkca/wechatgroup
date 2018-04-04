@@ -25,6 +25,9 @@ export class AdminWechatGroupListComponent implements OnInit {
             (r:WechatGroup[]) => {
                 self.wechatgroupList = r;
                 self.fields = Object.keys(r[0]);
+                if(r.length == 0){
+                    self.router.navigate(["admin/wechatgroup"]);
+                }
             },
             (err:any) => {
                 self.wechatgroupList = [];

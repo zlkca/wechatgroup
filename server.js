@@ -4,7 +4,7 @@ const path = require('path')
 const app = express()
 
 const SERVER_NAME = 'wechatgroup'
-const SERVER_PORT = 5004
+const SERVER_PORT = 5005
 
 // body-parser does not handle multipart bodies
 var bodyParser = require('body-parser');
