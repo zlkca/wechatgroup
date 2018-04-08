@@ -10,11 +10,6 @@ import { CategoryFormComponent } from './category-form/category-form.component';
 import { WechatGroupListComponent } from './wechatgroup-list/wechatgroup-list.component';
 import { WechatGroupDetailComponent } from './wechatgroup-detail/wechatgroup-detail.component';
 
-import { QRListComponent } from './qr-list/qr-list.component';
-import { QRFormComponent } from './qr-form/qr-form.component';
-import { SubscriptionListComponent } from './subscription-list/subscription-list.component';
-import { SubscriptionFormComponent } from './subscription-form/subscription-form.component';
-
 import { UiService } from '../ui/ui.service';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -52,7 +47,7 @@ import { TokenInterceptor } from './commerce.service';
       useClass: TokenInterceptor,
       multi: true
     }],
-   exports:[CategoryListComponent,CategoryFormComponent,WechatGroupListComponent,WechatGroupDetailComponent,QRListComponent,QRFormComponent,SubscriptionListComponent,SubscriptionFormComponent],
-   declarations:[CategoryListComponent,CategoryFormComponent,WechatGroupListComponent,WechatGroupDetailComponent,QRListComponent,QRFormComponent,SubscriptionListComponent,SubscriptionFormComponent]
+   exports:[CategoryListComponent,CategoryFormComponent,WechatGroupListComponent,WechatGroupDetailComponent],
+   declarations:[CategoryListComponent,CategoryFormComponent,WechatGroupListComponent,WechatGroupDetailComponent]
 })
 export class CommerceModule { }
