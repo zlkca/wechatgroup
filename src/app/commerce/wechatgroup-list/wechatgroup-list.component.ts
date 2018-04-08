@@ -102,8 +102,8 @@ export class WechatGroupListComponent implements OnInit {
     getFrame(){
         let w:number = window.innerWidth;
         if(w < MOBILE_WIDTH){
-            let frame_w = Math.floor((w - 45) / 2);// 2 pics per row
-            let frame_h = Math.floor(frame_w * 3 / 4);
+            let frame_w = Math.floor((w - 48) / 2);// 2 pics per row
+            let frame_h = frame_w;//Math.floor(frame_w * 3 / 4);
             let min_frame_h = Math.floor(frame_h * 0.9);
             return {w:frame_w, h:frame_h, min_h:min_frame_h};
         }else{

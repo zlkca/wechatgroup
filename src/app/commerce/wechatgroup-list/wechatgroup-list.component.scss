@@ -15,8 +15,7 @@
     }
 }
 
-$cellphone: "(max-width: 575px)";
-$mobile: "(min-width:576px) and (max-width: 767px)";
+$mobile: "(max-width: 767px)";
 $tablet: "(min-width: 768px) and (max-width: 1199px)";
 $desktop: "(min-width: 1200px)";
 
@@ -31,13 +30,15 @@ $IMAGE_H:160px;
         display:inline-block;
         vertical-align: top;
         // border:1px solid #eee;
-        margin:8px;
+        margin-top:8px;
+        margin-bottom:8px;
+        margin-right:10px;
     }
     
     .image-area{
         img{
-            width:$IMAGE_W;
-            height:$IMAGE_H;
+            // width:$IMAGE_W;
+            // height:$IMAGE_H;
             display: block;
             margin: auto;
         }
@@ -74,18 +75,25 @@ $IMAGE_H:160px;
         }
     }
 
-    @media #{$desktop}{
 
-    }
+}
 
-    @media #{$tablet}{
+@media #{$desktop}{
 
-     }
+}
 
-    @media #{$mobile}{
+@media #{$tablet}{
 
-    }
-    @media #{$cellphone}{
+ }
 
+@media #{$mobile}{
+    .wechatgroup-list{
+        padding-left:10px;
+        padding-right:10px;
+
+        .item-cell{
+            margin-top:8px;
+            margin-bottom:8px;
+        }
     }
 }

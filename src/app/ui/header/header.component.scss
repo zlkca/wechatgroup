@@ -1,5 +1,5 @@
-$navbar_height:200px;
-$navbar-mobile-h:180px;
+$navbar_height:210px;
+$navbar-mobile-h:210px;
 
 $search-btn-w:80px;
 $border-color:#b0b0b0;
@@ -160,6 +160,7 @@ header{
                 border-left: 1px solid #bbb;
                 border-bottom: 1px solid #bbb;
                 border-right: 1px solid #bbb;
+                background: white;
             }
 
             .search-box{
@@ -188,5 +189,25 @@ header{
         .language-menu{
                 display:block;
         }
+    }
+
+    @media (max-width: 767px) and (orientation: portrait){
+        .navbar{
+            margin-right: -15px;
+            margin-left: -15px;
+            max-height:$navbar_height;
+
+            .my-qr-m{
+                width:165px;
+                padding-left:0px;
+            }
+            .navbar-brand{
+                padding-left:0px;
+                padding-right:0px;
+                margin-left:0px;
+                margin-right:0px;
+            }
+        }
+
     }
 }
