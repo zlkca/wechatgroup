@@ -28,7 +28,8 @@ export class WechatGroupListComponent implements OnInit {
     item:any;
     frame:any;
 
-    constructor(private translate:TranslateService, private uiServ:UiService, private router:Router, private wechatgroupServ:CommerceService){
+    constructor(private translate:TranslateService, private uiServ:UiService, private router:Router, 
+        private commerceServ:CommerceService){
         let self = this;
         
         this.uiServ.getMsg().subscribe(msg => {
@@ -50,8 +51,11 @@ export class WechatGroupListComponent implements OnInit {
         self.item = {h:self.frame.h + TEXTAREA_HEIGHT, w:self.frame.w + 1 };
 
         this.fields = Object.getOwnPropertyNames(wechatgroup);
-        this.wechatgroupServ.getWechatGroupList().subscribe(
+        this.commerceServ.getWechatGroupList().subscribe(
             (r:WechatGroup[]) => {
+                for( let item of r){
+                    item.logo = self.commerceServ.getImageUrl(item.logo);
+                }
                 self.wechatgroupList = r;
                 self.fields = Object.keys(r[0]);
             },
@@ -86,7 +90,7 @@ export class WechatGroupListComponent implements OnInit {
     doSearch(q){
         let self = this;
         let query = this.toQueryStr(q)
-        this.wechatgroupServ.getWechatGroupList(query).subscribe(
+        this.commerceServ.getWechatGroupList(query).subscribe(
             (r:WechatGroup[]) => {
                 self.wechatgroupList = r;
             },

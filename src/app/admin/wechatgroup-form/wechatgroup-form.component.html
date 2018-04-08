@@ -20,13 +20,23 @@
                 <div>rating</div>
                 <input name="rating" [(ngModel)]="wechatgroup.rating"/>
             </div> -->
-            <div class="row">
+<!--             <div class="row">
                 <div class="label-sm">{{'LOGO'|translate}}</div>
                 <input name="logo" type="file" (change)="onFileChange($event)" />
                 <img [src]="logo" />
-    <!--             <div class="canvas-frame">
+                <div class="canvas-frame">
                     <canvas id="item-canvas" [style.width.px]="CANVAS_W" [style.marginTop.px]="FRAME_PADDING_H"></canvas>
-                </div> -->
+                </div>
+            </div> -->
+            <div class="row" *ngFor="let qr of wechatgroup.qrs; let i=index">
+                <div class="label-sm">{{'PICTURE_TITLE'|translate}}</div>
+                <input name="title{{i}}" [value]="qr.title" />
+                <div class="label-sm">{{'PICTURE'|translate}}</div>
+                <input class="upload-input" name="image{{i}}" type="file" (change)="onImageChange($event, i)" />
+                <img [src]="qr.image.data" />
+                <div class="btn" (click)="onLoadImage(i)">{{'UPLOAD'|translate}}</div>
+                <div class="btn" (click)="onDeleteImage(i)">{{'DELETE'|translate}}</div>
+                <div class="label-sm">*Need to click the Save button to save the result</div>
             </div>
     <!--         <div class="row">
                 <div class="label-sm">user</div>

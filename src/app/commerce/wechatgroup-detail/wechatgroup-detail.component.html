@@ -10,7 +10,7 @@
         </div> -->
         <div class="row">
             <div class="left-side">
-                <img src={{logo}} />
+                <img src={{wechatgroup.logo}} />
             </div>
             <div class="right-side">
                 <div class="title">{{wechatgroup.title}}</div>
@@ -18,10 +18,17 @@
                     <span class="title-md">{{'INTRODUCTION'|translate}}:&nbsp;</span>
                     {{wechatgroup.description}}
                 </p>
-
-                    
+                  
                 <div class="row category">
                 <span class="title-md">{{'CATEGORY'|translate}}:&nbsp;</span>{{categoryName}}
+                </div>
+            </div>
+        </div>
+        <div class="row images-row">
+            <div *ngFor="let qr of wechatgroup.qrs;let i=index;">
+                <div class="image-block" *ngIf="qr.image.data!=emptyImage && qr.image.data!=wechatgroup.logo">
+                    <img [src]="qr.image.data" />
+                    <div class="label-sm">{{qr.title}}</div>
                 </div>
             </div>
         </div>

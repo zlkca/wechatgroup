@@ -3,14 +3,24 @@ $IMAGE_W:220px;
 .wechatgroup-detail{
     padding:10px 80px;
 
+    img{
+        width:$IMAGE_W;
+        height:$IMAGE_W;
+        border:1px solid #eee;
+    }
+
+    .images-row{
+        margin-top:20px;
+
+        .image-block{
+            margin-right:15px;
+        }
+    }
+
     .left-side{
         width:$IMAGE_W + 20px;
         padding-top:45px;
-        img{
-            width:$IMAGE_W;
-            height:$IMAGE_W;
-            border:1px solid #eee;
-        }
+
     }
 
     .right-side{

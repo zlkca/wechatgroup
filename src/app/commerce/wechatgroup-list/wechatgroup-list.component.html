@@ -17,7 +17,7 @@
 
     <div class="item-cell" [ngStyle]="{'width':item.w+'px', 'height':item.h+'px'}" *ngFor="let r of wechatgroupList" (click)="toDetail(r)" >
         <div class="image-area" [ngStyle]="{'height':frame.h+'px'}">
-            <img src="{{MEDIA_URL}}{{r.logo}}" alt="{{r.title}}" />
+            <img src="{{r.logo}}" alt="{{r.title}}" />
         </div>
 
         <div class="text-area">

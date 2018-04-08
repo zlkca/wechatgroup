@@ -13,8 +13,8 @@ import { environment } from '../../../environments/environment';
 })
 export class AdminWechatGroupListComponent implements OnInit {
     wechatgroupList:WechatGroup[];
-    MEDIA_URL = environment.APP_URL+'/media/';
     fields:string[] = [];
+
     constructor(private translate:TranslateService, private router:Router, private commerceServ:CommerceService){}
 
     ngOnInit() {
@@ -23,7 +23,11 @@ export class AdminWechatGroupListComponent implements OnInit {
         this.fields = Object.getOwnPropertyNames(wechatgroup);
         this.commerceServ.getWechatGroupList().subscribe(
             (r:WechatGroup[]) => {
+                for( let item of r){
+                    item.logo = self.commerceServ.getImageUrl(item.logo);
+                }
                 self.wechatgroupList = r;
+
                 if(r.length){
                     self.fields = Object.keys(r[0]);
                 }else{
@@ -34,6 +38,8 @@ export class AdminWechatGroupListComponent implements OnInit {
                 self.wechatgroupList = [];
             });
     }
+
+
 
     toForm(r:any){
         if(r){

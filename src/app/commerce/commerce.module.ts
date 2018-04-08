@@ -24,6 +24,13 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, '../../assets/i18n/', '.json');
 }
+
+
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './commerce.service';
+
+
+
 @NgModule({
    imports:[
       CommonModule,
@@ -39,7 +46,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
       //UiModule
    ],
-   providers: [UiService],
+   providers: [UiService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }],
    exports:[CategoryListComponent,CategoryFormComponent,WechatGroupListComponent,WechatGroupDetailComponent,QRListComponent,QRFormComponent,SubscriptionListComponent,SubscriptionFormComponent],
    declarations:[CategoryListComponent,CategoryFormComponent,WechatGroupListComponent,WechatGroupDetailComponent,QRListComponent,QRFormComponent,SubscriptionListComponent,SubscriptionFormComponent]
 })

@@ -25,9 +25,7 @@ export class HeaderComponent implements OnInit {
     user:any;
     keyword:string;
     term$ = new Subject<string>();
-    MEDIA_URL = environment.APP_URL+'/media/';
     wechat:any = new Wechat();
-    logo:any;
 
     constructor(private router:Router, private authServ:AuthService, private commerceServ:CommerceService, 
         private uiServ:UiService, private translateServ:TranslateService) {
@@ -51,7 +49,6 @@ export class HeaderComponent implements OnInit {
         });
 
         self.isLogin = self.authServ.hasLoggedIn();
-
         self.updateWechat();
     }
 
@@ -59,11 +56,12 @@ export class HeaderComponent implements OnInit {
         let self = this;
         self.commerceServ.getWechat(1).subscribe(
           (r:Wechat) => {
-              self.logo = self.MEDIA_URL + r.logo;
+              r.logo = self.commerceServ.getImage(r.logo);
               self.wechat = r;
           },
           (err:any) => {
               self.wechat = new Wechat();
+              self.wechat.logo = self.commerceServ.getImage(self.wechat.logo);
           });
     }
 

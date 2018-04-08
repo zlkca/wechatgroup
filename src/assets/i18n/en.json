@@ -5,6 +5,7 @@
     "ACTIVE_EMAIL_SENT":"Activated email has been sent!",
     "ADD":"Add",
     "ADMIN":"Admin",
+    "ADMIN_IMAGE_DEFAULT_TITLE":"Default Image Titles",
     "ADMIN_LOGIN":"Admin Login",
     "ADMIN_WECHAT":"Admin Wechat",
     "ALBUM":"Album",
@@ -29,7 +30,7 @@
     
     "DELETE":"Delete",
     "USERNAME_OR_EMAIL":"Username or Email",
-    "PASSWORD":"Password",
+
     
 
     "USERNAME":"Username",
@@ -43,7 +44,9 @@
     "SIGNUP":"Sign Up",
     "LOGOUT":"Logout",
     
+
     "INVALID_ACCOUNT_OR_PASSOWRD":"Invalid Account or Password",
+
     "USERNAME_OR_EMAIL_EXIST":"Username or Email Exist",
     "INVALID_INPUT":"Invalid Input",
     "UPLOAD_PHOTO":"Upload Photo",
@@ -69,16 +72,25 @@
     "SUBMIT":"Submit",
     
     "OK":"OK",
-    "PHOTOS":"Photos",
+
     "UPLOAD":"Upload",
     "SELL":"Sell",
     "BUY":"Buy",
+    
     "PRICE_TBD":"Unknow Price",
     "ABOUT":"About",
 
     "ACCOUNT":"Account",
+    
+
+
+    "PASSWORD":"Password",
+    "PICTURE":"Picture",
+    "PICTURE_TITLE":"Picture Title",
+    "PHOTOS":"Photos",
     "PROFILE":"Profile",
     "PREVIOUS":"Previous",
+
     "DETAILS":"Details",
     "BILLING_ADDRESS":"Billing Address",
     "DELIVERY_ADDRESS":"Delivery Address",

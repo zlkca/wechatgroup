@@ -5,6 +5,7 @@
     "ACTIVE_EMAIL_SENT":"激活邮件已发送！",
     "ADD":"添加",
     "ADMIN":"管理员",
+    "ADMIN_IMAGE_DEFAULT_TITLE":"图片默认标题",
     "ADMIN_LOGIN":"管理员登录",
     "ADMIN_WECHAT":"管理员微信",
     "ALBUM":"专辑",
@@ -21,7 +22,7 @@
     "CREATE_NEW_ACCOUNT":"创建新账号",
     "DELETE":"删除",
     "USERNAME_OR_EMAIL":"用户名或邮箱",
-    "PASSWORD":"密码",
+    
     
 
     "USERNAME":"用户名",
@@ -63,7 +64,7 @@
     "SUBMIT":"提交",
     
     "OK":"确定",
-    "PHOTOS":"照片",
+    
     "UPLOAD":"上传",
     "SELL":"出售",
     "BUY":"购买",
@@ -71,8 +72,14 @@
     "ABOUT":"关于",
     "SUPPORT":"支持与帮助",
     "ACCOUNT":"账号",
+
+    "PASSWORD":"密码",
+    "PHOTOS":"照片",
+    "PICTURE":"图片",
+    "PICTURE_TITLE":"图片标题",
     "PROFILE":"个人资料",
     "PREVIOUS":"上一步",
+
     "DETAILS":"详细",
     "BILLING_ADDRESS":"账单地址",
     "DELIVERY_ADDRESS":"收货地址",

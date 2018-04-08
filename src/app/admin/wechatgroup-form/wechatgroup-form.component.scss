@@ -1,7 +1,25 @@
 .wechatgroup-form{
-    img{
-        width:100px;
-        height:100px;
-        border:1px solid #eee;
+
+    .row{
+        .btn{
+            margin-left:15px;
+            width:120px;
+            min-width:120px;
+        }
+
+        img{
+            width:100px;
+            height:100px;
+            border:1px solid #eee;
+            margin-right:15px;
+            margin-bottom:15px;
+        }
+
+        input{
+            width:480px;
+        }
+    }
+    .upload-input{
+        display:none;
     }
 }

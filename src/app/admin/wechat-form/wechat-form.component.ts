@@ -16,7 +16,6 @@ import { environment } from '../../../environments/environment';
 export class AdminWechatFormComponent implements OnInit {
     MEDIA_URL = environment.APP_URL + '/media/';
     wechat:Wechat = new Wechat();
-    logo:any = environment.APP_URL + '/media/empty.png';
 
     constructor(private translate:TranslateService, private commerceServ:CommerceService, private router: Router, 
       private uiServ: UiService ){
@@ -27,7 +26,7 @@ export class AdminWechatFormComponent implements OnInit {
 
         self.commerceServ.getWechat(1).subscribe(
           (r:Wechat) => {
-              self.logo = self.MEDIA_URL + r.logo;
+              r.logo = self.commerceServ.getImage(r.logo);
               self.wechat = r;
           },
           (err:any) => {
@@ -58,8 +57,9 @@ export class AdminWechatFormComponent implements OnInit {
           let file = event.target.files[0];
           reader.readAsDataURL(file);
           reader.onload = () => {
-              self.logo = reader.result;//.split(',')[1];
-              self.wechat.logo = event.target.files[0];
+              self.wechat.logo = {data: reader.result, file: event.target.files[0]};
+              // self.logo = reader.result;//.split(',')[1];
+              // self.wechat.logo = event.target.files[0];
           //   this.form.get('avatar').setValue({
           //     filename: file.name,
           //     filetype: file.type,

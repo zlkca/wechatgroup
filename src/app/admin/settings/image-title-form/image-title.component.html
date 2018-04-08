@@ -1,0 +1,29 @@
+<div class="admin-image-default-title-form">
+    <div class="container">
+        <div class="title-md">{{'ADMIN_IMAGE_DEFAULT_TITLE'|translate}}:</div>
+        
+        <form>
+            <div class="row">
+                <div class="label-sm">{{'TITLE'|translate}}</div>
+                <input name="name0" [(ngModel)]="image_title.name0"/>
+            </div>
+
+            <div class="row">
+                <div class="label-sm">{{'TITLE'|translate}}</div>
+                <input name="name1" [(ngModel)]="image_title.name1"/>
+            </div>
+
+            <div class="row">
+                <div class="label-sm">{{'TITLE'|translate}}</div>
+                <input name="name2" [(ngModel)]="image_title.name2"/>
+            </div>
+
+            <div class="row">
+                <div class="label-sm">{{'TITLE'|translate}}</div>
+                <input name="name3" [(ngModel)]="image_title.name3"/>
+            </div>
+			
+			<button (click)="save(image_title)">{{'SAVE'|translate}}</button>
+        </form>
+    </div>
+</div>

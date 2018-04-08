@@ -4,13 +4,40 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { environment } from '../../environments/environment';
-import { Category,WechatGroup,Wechat,QR,Subscription } from './commerce';
+import { Category,WechatGroup,Wechat,ImageDefaultTitle, QR,Subscription } from './commerce';
 import 'rxjs/add/observable/fromPromise';
+
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor
+} from '@angular/common/http';
+//import { Observable } from 'rxjs/Observable';
+@Injectable()
+export class TokenInterceptor implements HttpInterceptor {
+    APP = environment.APP;
+  constructor() {}
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    let token = localStorage.getItem('token-' + this.APP);
+    request = request.clone({
+      setHeaders: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Bearer ' + btoa(token)
+      }
+    });
+    return next.handle(request);
+  }
+}
+
+
 @Injectable()
 export class CommerceService {
     
     private API_URL = environment.API_URL;
     private APP = environment.APP;
+    MEDIA_URL = environment.APP_URL+'/media/';
+    emptyImage = environment.APP_URL + '/media/empty.png';
 
     constructor(private http:HttpClient){ }
     getCategoryList(query?:string):Observable<any>{
@@ -76,7 +103,43 @@ export class CommerceService {
             return Observable.throw(err.message || err);
         });
     }
+	
+    getImageDefaultTitle(id:number):Observable<ImageDefaultTitle>{
+        const url = this.API_URL + 'image-default-title/1';
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+            
+        return this.http.get(url, {'headers': headers}).map((res:any) => {
+            return new ImageDefaultTitle(res.data);
+        })
+        .catch((err) => {
+            return Observable.throw(err.message || err);
+        });
+    }
+	
+	saveImageDefaultTitle(d:ImageDefaultTitle):Observable<ImageDefaultTitle>{
+        const url = this.API_URL + 'image-default-title';
+        let token = localStorage.getItem('token-' + this.APP);
+        // let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        //         .set("authorization", "Basic " + btoa(token));
 
+        let data = {
+          'id': 1,//d.id? d.id:'',
+          'name0': d.name0,
+          'name1': d.name1,
+		  'name2': d.name2,
+		  'name3': d.name3
+          //"authorization": "Basic " + btoa(token)
+        }
+
+        //headers.append("authorization", "Basic " + btoa(token));
+        return this.http.post(url, data).map((res:any) => {
+            return new ImageDefaultTitle(res.data);
+        })
+        .catch((err) => {
+            return Observable.throw(err.message || err);
+        });
+    }
+	
     getWechatGroupList(query?:string):Observable<any>{
         const url = this.API_URL + 'wechatgroups' + (query ? query:'');
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -106,27 +169,55 @@ export class CommerceService {
         });
     }
 
-    // saveWechatGroup(d:WechatGroup):Observable<WechatGroup>{
-    //     const url = this.API_URL + 'wechatGroup';
-    //     let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    //     let data = {
-    //       'title': d.title,
-    //       'description': d.description,
-    //       'n_subscription': d.n_subscription,
-    //       'rating': d.rating,
-    //       'logo': d.logo,
-    //       'user_id': d.user.id,
-    //       'created': d.created,
-    //     }
-    //     return this.http.post(url, data, {'headers': headers}).map((res:any) => {
-    //         return new WechatGroup(res.data);
-    //     })
-    //     .catch((err) => {
-    //         return Observable.throw(err.message || err);
-    //     });
-    // }
+    getDefaultLogo(item){
+        let self = this;
+        if(item.qrs[0].image.data){
+            return self.MEDIA_URL + item.qrs[0].image.data;
+        }else if(item.qrs[1].image.data){
+            return self.MEDIA_URL + item.qrs[1].image.data;
+        }else if(item.qrs[2].image.data){
+            return self.MEDIA_URL + item.qrs[2].image.data;
+        }else if(item.qrs[3].image.data){
+            return self.MEDIA_URL + item.qrs[3].image.data;
+        }else{
+            return self.emptyImage;
+        }
+    }
+
+    getImageUrl(path){
+        let self = this;
+        if(path == ''){
+          return self.emptyImage;
+        }else{
+          return self.MEDIA_URL + path;
+        }
+    }
+
+    getImage(image){
+        let self = this;
+        if(image.data == ''){
+          image = {'data':self.emptyImage, 'file':''};
+        }else{
+          image = {'data':self.MEDIA_URL + image.data, 'file':''};
+        }
+        return image;
+    }
+
+    getWechatGroupQRs(qrs, defaultTitles){
+      let self = this;
+      for( let i=0; i<qrs.length; i++){
+          if(!qrs[i].title){
+              qrs[i].title = defaultTitles[i];
+          }
+          qrs[i].image = self.getImage(qrs[i].image);
+      }
+      return qrs;
+    }
+
     saveWechatGroup(d:WechatGroup){
         let token = localStorage.getItem('token-' + this.APP);
+        let self = this;
+
         return Observable.fromPromise(new Promise((resolve, reject)=>{
             
             let formData = new FormData();
@@ -139,7 +230,17 @@ export class CommerceService {
             formData.append('user_id', '1');//d.user.id);
             formData.append('category_id', d.category.id);
             formData.append('created', d.created);
-            formData.append('logo', d.logo);
+            // formData.append('logo', d.logo);
+            for(let i=0; i<d.qrs.length; i++){
+                formData.append('title'+i, d.qrs[i].title);
+                if(d.qrs[i].image.data == self.emptyImage){
+                    formData.append('image_status'+i, 'clear');
+                }else{
+                    formData.append('image_status'+i, 'unchange');
+                }
+                formData.append('image'+i, d.qrs[i].image.file);
+            }
+            
 
             var xhr = new XMLHttpRequest();
 
@@ -161,7 +262,7 @@ export class CommerceService {
             };
 
             xhr.open("POST", this.API_URL + 'wechatgroup', true);
-            xhr.setRequestHeader("authorization", "Basic " + btoa(token));
+            xhr.setRequestHeader("authorization", "Bearer " + btoa(token));
             xhr.send(formData);
         }));
     }
@@ -183,6 +284,7 @@ export class CommerceService {
             return Observable.throw(err.message || err);
         });
     }
+
     getWechat(id:number):Observable<Wechat>{
         const url = this.API_URL + 'wechat/1';
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -226,7 +328,7 @@ export class CommerceService {
             };
 
             xhr.open("POST", this.API_URL + 'wechat', true);
-            xhr.setRequestHeader("authorization", "Basic " + btoa(token));
+            xhr.setRequestHeader("authorization", "Bearer " + btoa(token));
             xhr.send(formData);
         }));
     }
@@ -284,7 +386,7 @@ export class CommerceService {
         let data = {
           'title': d.title,
           'image': d.image,
-          'wechatgroup_id': d.wechatgroup.id,
+          'wechatgroup_id': d.wechatgroup_id,
         }
         return this.http.post(url, data, {'headers': headers}).map((res:any) => {
             return new QR(res.data);
@@ -293,6 +395,7 @@ export class CommerceService {
             return Observable.throw(err.message || err);
         });
     }
+
     getSubscriptionList(query?:string):Observable<Subscription[]>{
         const url = this.API_URL + 'subscription' + (query ? query:'');
         let headers = new HttpHeaders().set('Content-Type', 'application/json');

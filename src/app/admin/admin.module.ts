@@ -19,6 +19,8 @@ import { AdminWechatGroupFormComponent } from './wechatgroup-form/wechatgroup-fo
 import { AdminWechatFormComponent } from './wechat-form/wechat-form.component';
 
 import { AdminDashboardComponent } from './dashboard/dashboard.component';
+import { ImageDefaultTitleFormComponent } from './settings/image-title-form/image-title.component';
+
 
 const adminRoutes:Routes = [
   {
@@ -32,7 +34,8 @@ const adminRoutes:Routes = [
       { path: 'wechatgroups', component:AdminWechatGroupListComponent},
       { path: 'wechatgroup/:id', component:AdminWechatGroupFormComponent },
       { path: 'wechatgroup', component:AdminWechatGroupFormComponent},
-      { path: 'wechat', component:AdminWechatFormComponent}
+      { path: 'wechat', component:AdminWechatFormComponent},
+      { path: 'image-default-title', component:ImageDefaultTitleFormComponent}
     ]
   }
 ]
@@ -51,6 +54,7 @@ const adminRoutes:Routes = [
   ],
   exports:[RouterModule],
   declarations: [AdminLoginComponent, AdminCategoryListComponent, AdminCategoryFormComponent, 
-  AdminWechatGroupListComponent, AdminWechatGroupFormComponent, AdminWechatFormComponent, AdminDashboardComponent]
+  AdminWechatGroupListComponent, AdminWechatGroupFormComponent, AdminWechatFormComponent, AdminDashboardComponent, 
+  ImageDefaultTitleFormComponent]
 })
 export class AdminModule { }
