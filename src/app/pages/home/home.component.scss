@@ -27,6 +27,7 @@ $search-btn-w:80px;
 
     .category-area{
         padding-left:5px;
+        padding-right:5px;
         // .label-block{
         //     width:50px;
         // }
@@ -41,10 +42,19 @@ $search-btn-w:80px;
 
 @media (max-width: 767px){
     .filter-area{
-        padding:0px 10px;
+        padding:0px;
+        margin-left:0px;
+        margin-right:0px;
 
         .search-box{
             display:block;
+        }
+
+        .category-area{
+            padding-left:0px;
+            padding-right:0px;
+            margin-left:0px;
+            margin-right:0px;
         }
     }
 
