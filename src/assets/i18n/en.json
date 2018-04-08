@@ -26,7 +26,7 @@
     "CURRENT":"Current",
     "CONFIRM":"Please Confirm",
     "CONFIRM_SELL_MESSAGE":"Do you want to sell this item now?",
-
+    "CREATED":"Created",
     
     "DELETE":"Delete",
     "USERNAME_OR_EMAIL":"Username or Email",
@@ -207,6 +207,8 @@
     "NAME_ON_CREDIT_CARD":"*Name On Credit Card",
     "CREDIT_CARD_NUMBER":"*Credit Card Number",
     "CSC":"*CSC",
+
+    "UPDATED":"Updated",
 
     "WAHT_IS_THIS":"(What is this?)",
     "WECHAT_GROUP":"Wechat Group",

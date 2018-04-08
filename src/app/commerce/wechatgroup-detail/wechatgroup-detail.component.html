@@ -20,7 +20,13 @@
                 </p>
                   
                 <div class="row category">
-                <span class="title-md">{{'CATEGORY'|translate}}:&nbsp;</span>{{categoryName}}
+                    <span class="title-md">{{'CATEGORY'|translate}}:&nbsp;</span>{{categoryName}}
+                </div>
+                <div class="row date">
+                    <span class="title-md">{{'CREATED'|translate}}:&nbsp;</span>{{wechatgroup.created | date: 'dd/MM/yyyy'}}
+                </div>
+                <div class="row date">
+                    <span class="title-md">{{'UPDATED'|translate}}:&nbsp;</span>{{wechatgroup.updated | date: 'dd/MM/yyyy'}}
                 </div>
             </div>
         </div>

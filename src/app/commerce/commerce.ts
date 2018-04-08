@@ -50,7 +50,7 @@ export class ImageDefaultTitle{
 }
 
 export class QR{
-  public title:string;
+  public title:string = '';
   public index:number;
   public image:any = { 'data':'', 'file':'' };
   public wechatgroup_id:any;
@@ -81,6 +81,7 @@ export class WechatGroup{
   public category:any = {id:1};
   public user:any = {id:1};
   public created:string;
+  public updated:string;
     constructor(o?:any){
         if(o){
             this.id = o.id;
@@ -91,8 +92,14 @@ export class WechatGroup{
             if(o.logo){
               this.logo = o.logo;
             }
-
-            this.qrs = o.qrs;
+            if(o.qrs && o.qrs.length > 0){
+              this.qrs = o.qrs;
+            }else{
+              this.qrs = [new QR(), new QR(), new QR(), new QR()];
+              for(let i=0; i<this.qrs.length; i++){
+                this.qrs[i].index = i;
+              }
+            }
             // if(o.qrs){ //load from front-end
             //   this.qrs = o.images;
             // }else{ // load from http
@@ -105,6 +112,7 @@ export class WechatGroup{
                 this.user = o.user;
             }
             this.created = o.created;
+            this.updated = o.updated;
       }
   }
 }

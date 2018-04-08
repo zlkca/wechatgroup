@@ -19,7 +19,9 @@
     "CHANGE":"修改",
     "CONFIRM_PASSWORD":"确认密码",
     "CONTACT_US":"联系我们",
+    "CREATED":"创建时间",
     "CREATE_NEW_ACCOUNT":"创建新账号",
+
     "DELETE":"删除",
     "USERNAME_OR_EMAIL":"用户名或邮箱",
     
@@ -203,6 +205,7 @@
     "CREDIT_CARD_NUMBER":"银行卡号",
     "CSC":"*CSC",
 
+    "UPDATED":"更新时间",
 
     "WAHT_IS_THIS":"（这是什么？）",
     "WECHAT_GROUP":"微信群",
