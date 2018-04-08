@@ -12,7 +12,7 @@ const FRAME_WIDTH:number = 160;
 const FRAME_HEIGHT:number = 160;
 const NORMAL_HEIGHT:number = 140;
 
-const TEXTAREA_HEIGHT:number = 65;
+const TEXTAREA_HEIGHT:number = 48;
 const MOBILE_WIDTH:number = 767;
 
 @Component({
@@ -99,10 +99,19 @@ export class WechatGroupListComponent implements OnInit {
             });
     }
 
+    isLandscape() {
+        return window.innerHeight < window.innerWidth;
+    }
+
     getFrame(){
+        let self = this;
         let w:number = window.innerWidth;
         if(w < MOBILE_WIDTH){
             let frame_w = Math.floor((w - 48) / 2);// 2 pics per row
+            if(self.isLandscape()){
+                frame_w = Math.floor((w - 60) / 3);
+            }
+            
             let frame_h = frame_w;//Math.floor(frame_w * 3 / 4);
             let min_frame_h = Math.floor(frame_h * 0.9);
             return {w:frame_w, h:frame_h, min_h:min_frame_h};

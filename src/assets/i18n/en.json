@@ -181,6 +181,9 @@
     "TO_LOGIN":" to login",
     "PRICE_UNDECIDED":"Price Undecided",
 
+    "QR_CODE":"QR Code",
+    "QUN_FINDER":"Toronto Weixin",
+
     "SAVE":"Save",
     "SEND":"Send",
     "SEARCH":"Search",
@@ -196,8 +199,10 @@
     "SOLD":"Sold",
     "SUBTOTAL":"Subtotal",
     "SUPPORT_MESSAGE":"Support Message is required",
-    "QR_CODE":"QR Code",
+
+
     
+
     "EMAIL-MSG_FIRST":"Please go to your email box ",
     "EMAIL-MSG_SECOND":", click the link to complete your signup",
     "EMAIL-TIPS":"Tip: The activated email might be in the 'Junk' box, please check out.",

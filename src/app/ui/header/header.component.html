@@ -6,14 +6,14 @@
 
     <a class="navbar-brand" href="#">
         <img class="logo-icon" src="/assets/images/logo.png" />
-        <div class="brand-name">QunFinder</div>
+        <div class="brand-name">{{'QUN_FINDER' | translate}}</div>
     </a>
 
-    <div class="nav-item my-qr-m">
+<!--     <div class="nav-item my-qr-m">
         <img [src]="wechat.logo.data" />
         <div class="title-sm">*{{wechat.title}}</div>
         <div class="title-sm">**{{wechat.description}}</div>
-    </div>
+    </div> -->
     
     <div class="collapse navbar-collapse" id="navbarContent">
         <div class="row">
@@ -54,7 +54,11 @@
         </div>
     </div>
 
-
+    <div class="my-qr-m">
+        <img [src]="wechat.logo.data" />
+        <div class="title-sm">*{{wechat.title}}</div>
+        <div class="title-sm">**{{wechat.description}}</div>
+    </div>
   </nav>
 
 </header>
