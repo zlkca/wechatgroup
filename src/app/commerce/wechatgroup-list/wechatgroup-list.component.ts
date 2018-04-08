@@ -92,6 +92,9 @@ export class WechatGroupListComponent implements OnInit {
         let query = this.toQueryStr(q)
         this.commerceServ.getWechatGroupList(query).subscribe(
             (r:WechatGroup[]) => {
+                for( let item of r){
+                    item.logo = self.commerceServ.getImageUrl(item.logo);
+                }
                 self.wechatgroupList = r;
             },
             (err:any) => {
@@ -107,9 +110,9 @@ export class WechatGroupListComponent implements OnInit {
         let self = this;
         let w:number = window.innerWidth;
         if(w < MOBILE_WIDTH){
-            let frame_w = Math.floor((w - 48) / 2);// 2 pics per row
+            let frame_w = Math.floor((w - 80) / 2);// 2 pics per row
             if(self.isLandscape()){
-                frame_w = Math.floor((w - 60) / 3);
+                frame_w = Math.floor((w - 94) / 3);
             }
             
             let frame_h = frame_w;//Math.floor(frame_w * 3 / 4);
