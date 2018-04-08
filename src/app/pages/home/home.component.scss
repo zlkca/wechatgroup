@@ -26,12 +26,14 @@ $search-btn-w:80px;
     }
 
     .category-area{
-        padding-left:20px;
+        padding-left:5px;
+        // .label-block{
+        //     width:50px;
+        // }
+        width:100%;
+
         .label-block{
-            width:50px;
-        }
-        .category-area{
-            width:calc(100% - 50px);
+            padding-left:8px;
         }
     }
 }
@@ -45,4 +47,6 @@ $search-btn-w:80px;
             display:block;
         }
     }
+
+
 }

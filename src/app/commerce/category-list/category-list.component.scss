@@ -1,5 +1,5 @@
 .category-list{
-    padding:0px 25px;
+    padding:0px 8px;
     
     .category{
         margin-right:5px;
@@ -12,4 +12,10 @@
         }
     }
 
+}
+
+@media (max-width: 767px){
+    .category-list{
+        padding:0px 8px;
+    }
 }
