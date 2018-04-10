@@ -75,15 +75,9 @@ export class AdminLoginComponent implements OnInit {
       this.subscription = this.authServ.login(account, password).subscribe(
           (user) => {
               if(user && user.username){
-                //if(user.active){
-                  // user.source = 'main';
-                  self.authServ.setLoginStorage(user);
                   self.uiServ.emitMsg({name:'OnUpdateHeader'});
                   self.user = user;
                   self.toAdminHome();
-                // }else{
-                //   self.errMsg = "ACTIVE_ACCOUNT_MSG"; 
-                // }
               }else{
                 self.errMsg = "INVALID_ACCOUNT_OR_PASSOWRD";          
               }

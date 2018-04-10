@@ -10,17 +10,28 @@ import { TranslateService } from '@ngx-translate/core';
     styleUrls: ['./dashboard.component.scss']
 })
 export class AdminDashboardComponent implements OnInit {
+  isLogin:boolean = false;
 
   constructor(private translate:TranslateService, private router:Router, private authServ: AuthService) {
 
   }
 
   ngOnInit() {
-      if(this.authServ.hasLoggedIn()){
-          this.toPage("admin/wechatgroups");
-      }else{
-          this.toPage("admin/login");
-      }
+    let self = this;
+
+    // check logged in or not
+    self.authServ.checkToken().subscribe(
+      (r:boolean)=>{
+        self.isLogin = r;
+        if(r){
+          //self.uiServ.emitMsg({name:'OnUpdateHeader'});
+          self.toPage("admin/wechatgroups");
+        }else{
+          self.toPage("admin/login");
+        }
+      },(err:any)=>{
+        self.toPage("admin/login");
+      });
   }
 
   toPage(url:string){

@@ -1,5 +1,5 @@
 <div class="page admin-dashboard">
-    <div class="container">
+    <div *ngIf="isLogin" class="container">
         <div class="row">
             <div class="col-md-3 left-side">
                 <div class="menu-item title-md" (click)="toPage('admin/categories')">{{'CATEGORY'|translate}}</div>

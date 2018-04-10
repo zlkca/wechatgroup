@@ -43,12 +43,23 @@ export class HeaderComponent implements OnInit {
         let self = this;
         this.uiServ.getMsg().subscribe(msg => {
             if('OnUpdateHeader' === msg.name){
-                self.isLogin = self.authServ.hasLoggedIn();
+                self.authServ.checkToken().subscribe(
+                  (r)=>{
+                    self.isLogin = r;
+                  },(err)=>{
+                    self.isLogin = false;
+                  });
+
                 self.updateWechat();
             }
         });
 
-        self.isLogin = self.authServ.hasLoggedIn();
+        self.authServ.checkToken().subscribe(
+          (r)=>{
+            self.isLogin = r;
+          },(err)=>{
+            self.isLogin = false;
+          });
         self.updateWechat();
     }
 
@@ -86,11 +97,11 @@ export class HeaderComponent implements OnInit {
 
     logout(){
         let self = this;
-        let flag = self.authServ.hasLoggedIn();
+        let flag = self.isLogin;
 
         this.closeNavMenu();
         if(flag){
-          self.authServ.setLogoutStorage();
+          self.authServ.rmStorage('token');
           self.isLogin = false;
           this.router.navigate(['home'])
         }
